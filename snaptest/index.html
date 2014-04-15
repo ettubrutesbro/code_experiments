@@ -1,0 +1,206 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Narrative Diagram (Linear)</title>
+<script src="snap.svg-min.js"></script>
+
+</head>
+
+<body>
+
+<div>
+		<svg id = "one"></svg>
+</div>
+<div>
+	<svg id = "two"></svg>
+</div>
+<div>
+	<svg id = "three"></svg>
+</div>
+<div>
+	<svg id = "four"></svg>
+</div>
+<div>
+	<svg id = "five"> </svg>
+</div>
+
+
+<script>
+window.onload = function () {
+
+	var s1 = Snap("#one");
+	Snap.load("diagram_building.svg", function(f){
+		var g;
+		g = f.select("svg");
+		s1.append(g);
+		var all = g.select('#building'),
+				grid_l1 = g.select('#gl1'),
+				grid_l2 = g.select('#gl2'),
+				solar_l = g.select('#solarline'),
+				wifi1 = g.select('#wifi1'),
+				wifi2 = g.select('#wifi2'),
+				wifi3 = g.select('#wifi3'),
+				d1
+
+				
+	})
+
+	var s2 = Snap("#two");
+	Snap.load("diagram_brains.svg", function(f){
+		var g;
+		g = f.select("svg");
+		s2.append(g);
+		var pwr = g.select('#power'),
+		w1 = g.select('#wire1'),
+		w2 = g.select('#wire2'),
+		usb = g.select('#usb'),
+		io = g.select('#IO'),
+		beaglebone = g.select('#beaglebone'),
+		bigeasydriver = g.select('#bigeasydriver'),
+		stepper = g.select('#stepper'),
+		nanowifi = g.select('#nanowifi'),
+		all = g.select('#brains');
+		g.hover(open, close);
+
+		function open(){
+			bigeasydriver.animate({
+				transform: "t 86 0"
+			}, 300)
+			stepper.animate({
+				transform: "t 173 0"
+			}, 300)
+
+				io.animate({
+					opacity: 1
+				}, 300)
+				usb.animate({
+					opacity: 1
+				}, 300)
+				nanowifi.animate({
+					opacity: 1,
+					translate: "t 0 63"
+				}, 300)
+				pwr.animate({
+					opacity: 1
+				}, 300)
+
+			
+		}
+
+		function close(){
+			bigeasydriver.animate({
+				transform: "t 0 0"
+			}, 300)
+			stepper.animate({
+				transform: "t 0 0"
+			}, 300)
+			io.animate({
+				opacity: 0
+			}, 300)
+			usb.animate({
+				opacity: 0
+			}, 300)
+			nanowifi.animate({
+				opacity: 0,
+				translate: "t 0 0"
+				}, 300)		
+			pwr.animate({
+				opacity: 0
+			}, 300)
+		}
+
+
+	})
+
+	var s3 = Snap("#three");
+	Snap.load("diagram_seseme.svg", function(f){
+		var g;
+		g = f.select("svg");
+		s3.append(g);
+		var p1 = g.select("#Pillar1"),
+			p2 = g.select("#Pillar2"),
+			p3 = g.select("#Pillar3"),
+			p4 = g.select("#Pillar4");
+			g.hover(open, close);
+
+			function open(){
+				p1.animate({
+					transform: "t 0 30"
+				}, 300)
+				p2.animate({
+					transform: "t 0 -30"
+				}, 300)
+				p3.animate({
+					transform: "t 0 30"
+				}, 300)
+				p4.animate({
+					transform: "t 0 -30"
+				}, 300)
+			} // end function open
+
+			function close(){
+				p1.animate({
+					transform: "t 0 0"
+				}, 300)
+				p2.animate({
+					transform: "t 0 0"
+				}, 300)
+				p3.animate({
+					transform: "t 0 0"
+				}, 300)
+				p4.animate({
+					transform: "t 0 0"
+				}, 300)
+			} // end function close
+
+
+	})
+
+	var s4 = Snap("#four");
+	Snap.load("diagram_phone.svg", function(f){
+		var g;
+		g = f.select("svg");
+		s4.append(g);
+	})
+
+	var s5 = Snap("#five");
+	Snap.load("diagram_social.svg", function(f){ //things to do with this svg happen in here: 
+		
+		g = f.select("svg");
+		s5.append(g);
+		var phoneGuy = g.select("#guy1"),
+			otherGuy = g.select("#guy2"),
+			seseme = g.select("#monument");
+			g.hover(open, close);
+
+			function open(){				
+				phoneGuy.animate({
+					transform: "t 15 0"
+				}, 300)
+
+				otherGuy.animate({
+					transform: "t 100 0"
+				}, 300)
+			}
+
+			function close(){
+				phoneGuy.animate({
+					transform: "t 0 0"
+				}, 300)
+
+				otherGuy.animate({
+					transform: "t 0 0"
+				}, 300)
+			}
+	})// end callback function of snap.load diagram_social
+
+
+
+} // end window.onload
+
+               // blah = item.select("#nestedelement"),
+                
+</script>
+	</body>
