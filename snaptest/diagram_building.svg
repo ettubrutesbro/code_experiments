@@ -71,237 +71,48 @@
 		<g id="grid_1_" >
 			
 				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-566.394" y1="595.443" x2="-784.88" y2="746.164" id = "d1">
-
 				</line>
+
 				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-529.762" y1="641.443" x2="-620.957" y2="746.164" id = "d2">
-
 				</line>
+
 				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-437.019" y1="641.443" x2="-469.411" y2="746.164" id = "d3">
-			
 				</line>
-				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-341.762" y1="746.164" x2="-341.762" y2="746.164">
+
+				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-341.762" y1="641.443" x2="-341.762" y2="746.164" id = "d4">
+				</line>
+
+				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-246.505" y1="641.443" x2="-214.114" y2="746.164" id = "d5">
+				</line>
+
+				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-153.762" y1="746.164" x2="-62.567" y2="746.164" id = "d6">	
+				</line>
+
+				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-117.129" y1="595.443" x2="101.359" y2="746.164" id = "d7">
+				</line>
+
+			<g id="horizontal">
+				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-594.762" y1="602.163" x2="-86.762" y2="602.163" id = "h1">
+				</line>
+
+				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-629.762" y1="619.163" x2="-45.762" y2="619.163" id = "h2">
+				</line>
 				
-						<animate  attributeName = "y1"
-						to = "641.443"
-						begin = "big.begin + 0.7s" dur = "0.3s"
-						fill = "freeze"
-						/>
-
-						<animate  attributeName = "y1"
-						to = "746.164"
-						begin = "reverse.begin + 0.4s" dur = "0.25s"
-						fill = "freeze"
-						/>
-
+				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-675.762" y1="641.443" x2="-117.129" y2="641.443" id = "h3">
 				</line>
-				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-214.114" y1="746.164" x2="-214.114" y2="746.164">
-						<animate  attributeName = "x1"
-						to = "-246.505"
-						begin = "big.begin + 0.6s" dur = "0.3s"
-						fill = "freeze"
-						/>
-						<animate  attributeName = "y1"
-						to = "641.443"
-						begin = "big.begin + 0.6s" dur = "0.3s"
-						fill = "freeze"
-						/>
 
-						<animate  attributeName = "x1"
-						to = "-214.114"
-						begin = "reverse.begin + 0.4s" dur = "0.25s"
-						fill = "freeze"
-						/>
-						<animate  attributeName = "y1"
-						to = "746.164"
-						begin = "reverse.begin + 0.4s" dur = "0.25s"
-						fill = "freeze"
-						/>
-
+				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-732.788" y1="672.163" x2="45.915" y2="672.163" id = "h4">
 				</line>
-				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-62.567" y1="746.164" x2="-62.567" y2="746.164">
-						<animate  attributeName = "x1"
-						to = "-153.762"
-						begin = "big.begin + 0.5s" dur = "0.3s"
-						fill = "freeze"
-						/>
-						<animate  attributeName = "y1"
-						to = "641.443"
-						begin = "big.begin + 0.5s" dur = "0.3s"
-						fill = "freeze"
-						/>	
-
-						<animate  attributeName = "x1"
-						to = "-153.762"
-						begin = "reverse.begin + 0.4s " dur = "0.25s"
-						fill = "freeze"
-						/>
-						<animate  attributeName = "y1"
-						to = "746.164"
-						begin = "reverse.begin + 0.4s " dur = "0.25s"
-						fill = "freeze"
-						/>
-					
-				</line>
-				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="101.359" y1="746.164" x2="101.359" y2="746.164">
-					<animate  attributeName = "x1"
-						to = "-117.129"
-						begin = "big.begin + 0.4s" dur = "0.3s"
-						fill = "freeze"
-						/>
-					<animate  attributeName = "y1"
-						to = "595.443"
-						begin = "big.begin + 0.4s" dur = "0.3s"
-						fill = "freeze"
-						/>	
-
-					<animate  attributeName = "x1"
-						to = "101.359"
-						begin = "reverse.begin + 0.4s" dur = "0.25s"
-						fill = "freeze"
-						/>
-					<animate  attributeName = "y1"
-						to = "746.164"
-						begin = "reverse.begin + 0.4s" dur = "0.25s"
-						fill = "freeze"
-						/>
-				</line>
-			<g id="horizontal_1_">
-				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-594.762" y1="602.163" x2="-594.762" y2="602.163">
-						<animate  attributeName = "x2"
-						to = "-86.762"
-						begin = "big.begin + 0.4s" dur = "0.5s"
-						fill = "freeze"
-						/>
-
-						<animate  attributeName = "x2"
-						to = "-594.762"
-						begin = "reverse.begin + 0.4s" dur = "0.5s"
-						fill = "freeze"
-						/>
-					</line>
-					<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-629.762" y1="619.163" x2="-629.762" y2="619.163">
-						<animate  attributeName = "x2"
-						to = "-45.762"
-						begin = "big.begin + 0.5s" dur = "0.5s"
-						fill = "freeze"
-						/>
-						<animate  attributeName = "x2"
-						to = "-45.762"
-						begin = "reverse.begin + 0.4s" dur = "0.25s"
-						fill = "freeze"
-						/>
-					</line>
-					<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-675.762" y1="641.443" x2="-675.762" y2="641.443">
-						<animate  attributeName = "x2"
-						to = "-117.129"
-						begin = "big.begin + 0.6s" dur = "0.5s"
-						fill = "freeze"
-						/>	
-						<animate  attributeName = "x2"
-						to = "-675.762"
-						begin = "reverse.begin + 0.4s" dur = "0.25s"
-						fill = "freeze"
-						/>
-					</line>
-					<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-732.788" y1="672.163" x2="-732.788" y2="672.163">
-						<animate  attributeName = "x2"
-						to = "45.915"
-						begin = "big.begin + 0.7s" dur = "0.5s"
-						fill = "freeze"
-						/>
-						<animate  attributeName = "x2"
-						to = "-732.788"
-						begin = "reverse.begin + 0.4s" dur = "0.25s"
-						fill = "freeze"
-						/>
-					</line>
 				
-					<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-811.31" y1="708.163" x2="-811.31" y2="708.163">
-					<animate  attributeName = "x2"
-						to = "133.238"
-						begin = "big.begin + 0.8s" dur = "0.5s"
-						fill = "freeze"
-						/>	
-					<animate  attributeName = "x2"
-						to = "-811.31"
-						begin = "reverse.begin + 0.4s" dur = "0.25s"
-						fill = "freeze"
-						/>
-					</line>
+				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-811.31" y1="708.163" x2="133.238" y2="708.163" id = "h5">
+				</line>
+
 			</g>
 		</g>
-			<text id="solartext" transform="matrix(0.9502 -0.3115 0.3115 0.9502 -268.6494 374.6846) translate(-75, 15)" opacity = "0">
-				<animateMotion  
-					fill = "freeze"
-					from = "0, 0" to = "0, -18"
-					begin = "big.begin + 1.9s" dur = "0.5s"
-					/>	
-				<animate  attributeName = "opacity"
-					fill = "freeze"
-					from = "0" to = "1"
-					begin = "big.begin + 1.9s" dur = "0.5s"
-					/>
-				<animateMotion  
-					fill = "freeze"
-					from = "0, -18" to = "0, 0"
-					begin = "reverse.begin + .4s" dur = "0.15s"
-					/>	
-				<animate  attributeName = "opacity"
-					fill = "freeze"
-					from = "1" to = "0"
-					begin = "reverse.begin + .4s" dur = "0.15s"
-					/>
-				SOLAR GAIN</text>
-			
-		
-			<text id="gridtext" transform="matrix(-8.979319e-011 1 -1 -8.979319e-011 -59.168 536.5) translate(-103, -40)" opacity = "0">
-				<animateMotion
-					fill = "freeze"
-					from = "0, 0" to = "0, 15"
-					begin = "big.begin + 1.9s" dur = "0.5s"
-					/>	
-				<animate attributeName = "opacity"
-					additive = "sum" fill = "freeze"
-					from = "0" to = "1"
-					begin = "big.begin + 1.9s" dur = "0.5s"
-					/>
-				<animateMotion  
-					fill = "freeze"
-					from = "0, 15" to = "0, 0"
-					begin = "reverse.begin + .4s" dur = "0.15s"
-					/>	
-				<animate  attributeName = "opacity"
-					fill = "freeze"
-					from = "1" to = "0"
-					begin = "reverse.begin + .4s" dur = "0.15s"
-					/>
-				GRID DRAW</text>
 	</g>
 	
-		<circle id="sun_1_" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" cx="-416.639" cy="403.163" r="89.712" 	filter = "url(#blurrySun)">
-		<animateTransform attributeName = "transform"
-			type = "scale"
-			from = "1 1" to = "0.75 0.75"	
-			begin = "big.begin" dur = "1s"
-			fill = "freeze"
-			/>
-		<animateMotion
-			from = "0,0" to = "-45,-10"
-			begin = "big.begin" dur = "1s"
-			fill = "freeze"
-			/>	
-
-		<animateTransform attributeName = "transform"
-			type = "scale"
-			from = "0.75 0.75" to = "1 1"
-			begin = "reverse.begin" dur = "0.4s"
-			fill = "freeze"
-			/>
-		<animateMotion
-			from = "-45, 10" to = "0, 0"
-			begin = "reverse.begin" dur = "0.4s"
-			fill = "freeze"
-			/>
+		<circle id="sun" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" cx="-416.639" cy="403.163" r="89.712" >
+	
 		</circle>
 	<g id="buildings_1_">
 		<polygon fill="#FFFFFF" stroke="#000000" stroke-width="7" stroke-miterlimit="10" points="-566.394,670.803 -566.394,451.98 
@@ -323,17 +134,7 @@
 		
 			<line fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" x1="-192.007" y1="412.43" x2="-192.007" y2="430.255"/>
 	</g>
-	<g id="windows_1_" opacity = "0">
-		<animate  attributeName = "opacity"
-		from = "0" to = "1"
-		begin = "big.begin" dur = "2s"
-		fill = "freeze"
-		/>	
-		<animate  attributeName = "opacity"
-		from = "1" to = "0"
-		begin = "reverse.begin" dur = ".4s"
-		fill = "freeze"
-		/>
+	<g id="windows" opacity = "0">
 
 
 		<g display="inline">
