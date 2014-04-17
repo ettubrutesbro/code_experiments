@@ -2,10 +2,10 @@
 <!-- Generator: Adobe Illustrator 16.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox = "0 0 490 390"
+	 viewBox = "0 0 490 420"
 	 xml:space="preserve">
 
-<g id="brains" pointer-events = "all" transform = "translate(0,-320)">
+<g id="brains" pointer-events = "all" transform = "translate(0,-300)">
 
 	<g id="nanowifi" opacity = "0">
 			<rect x="84.768" y="299.522" display="inline" fill="#FFFFFF" stroke="#898989" stroke-width="7" stroke-miterlimit="10" width="42" height="42.602"/>
@@ -430,23 +430,7 @@
 			183.021,637.659 187.372,637.659 183.213,644.578 190.422,644.578 		"/>
 	</g>
 
-	<polyline id="wire1"  opacity = "1" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" points="217.936,421.19 293.102,421.19 293.102,458.358" stroke-dasharray = "200,200" stroke-dashoffset = "200">
 
-	</polyline>
-	<polyline id="wire2"  opacity = "1" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" points="293.102,572.458 293.102,671.444 527.074,671.444 527.074,642.3" stroke-dasharray = "500,500" stroke-dashoffset = "500">
-		<animate attributeName = "stroke-dashoffset"
-		from = "500" to = "0"
-		begin = "wire1.end" dur = "1.3s"
-		fill = "freeze"
-		
-		/>	
-		<animate attributeName = "stroke-dashoffset"
-		from = "0" to = "500"
-		begin = "reverse.begin" dur = "0.3s"
-		fill = "freeze"
-	
-		/>
-	</polyline>
 
 </g>
 </svg>

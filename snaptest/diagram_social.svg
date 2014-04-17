@@ -6,9 +6,11 @@
 	 xml:space="preserve">
 
 
-
-
-
+<defs>
+<filter id = "blur2">
+	<feGaussianBlur id = "gausBlur" stdDeviation = "0" />
+</filter>
+</defs>
 
 
 
@@ -22,7 +24,7 @@
 			c4.544-14.536,6.996-18.779,21.531-20.751c0-23.816-2.778-56.335,25.416-56.335c28.193,0,24.56,33.357,24.56,56.335
 			c0,0,15.22,6.618,18.752,17.722c4.239,13.326,5.451,99.344-2.728,102.675c-9.993,3.938-10.6-5.754-10.6-5.754l-0.606-73.297"/>
 	</g>
-	<g id="monument">
+	<g id="monument" filter = "url(#blur2)">
 		<rect x="1779.561" y="511.799" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="88" height="144" />
 	
 		<rect x="1787.561" y="370.799" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="32" height="141" />

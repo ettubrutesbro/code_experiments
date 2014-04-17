@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<title>Narrative Diagram (Linear)</title>
 <script src="snap.svg-min.js"></script>
+<script src="jquery-2.1.0.min.js"></script>
 
 </head>
 
@@ -36,42 +37,254 @@ window.onload = function () {
 		g = f.select("svg");
 		s1.append(g);
 		var all = g.select('#building'),
-				grid_l1 = g.select('#gl1'),
-				grid_l2 = g.select('#gl2'),
-				solar_l = g.select('#solarline'),
+				grid_l = g.select('#gridline'),
+				gridline = grid_l.path("M -113 641").attr({
+					stroke: "#898989",
+					strokeWidth: 10,
+					fill: "none",
+					strokeLinecap: "round",
+					strokeDasharray: "0.1, 20"
+				}),
+
+				solar_l = g.select('#linesetc'),
+				solarline = solar_l.path("M -267 388").attr({
+					stroke: "#898989",
+					strokeWidth: 10,
+					fill: "none",
+					strokeLinecap: "round",
+					strokeDasharray: "0.1, 20"
+				}),
 				wifi1 = g.select('#wifi1'),
 				wifi2 = g.select('#wifi2'),
 				wifi3 = g.select('#wifi3'),
-				d1 = g.select('#d1'),
-				d2 = g.select('#d2'),
-				d3 = g.select('#d3'),
-				d4 = g.select('#d4'),
-				d5 = g.select('#d5'),
-				d6 = g.select('#d6'),
-				d7 = g.select('#d7'),
-				h1 = g.select('#h1'),
-				h2 = g.select('#h2'),
-				h3 = g.select('#h3'),
-				h4 = g.select('#h4'),
-				h5 = g.select('#h5'),
+				grid = g.select("#grid"),
+				d1 = grid.path("M-785 746").attr("stroke","#898989").attr("strokeWidth","5"),
+				d2 = grid.path("M-621 746").attr("stroke","#898989").attr("strokeWidth","5"),
+				d3 = grid.path("M-469 746").attr("stroke","#898989").attr("strokeWidth","5"),
+				d4 = grid.path("M-341 746").attr("stroke","#898989").attr("strokeWidth","5"),
+				d5 = grid.path("M-214 746").attr("stroke","#898989").attr("strokeWidth","5"),
+				d6 = grid.path("M-62 746").attr("stroke","#898989").attr("strokeWidth","5"),
+				d7 = grid.path("M101 746").attr("stroke","#898989").attr("strokeWidth","5"),
+				/*diag_lines = [d1, d2, d3, d4, d5, d6, d7],
+				diag_x1 = [-785, -621, -469, -341, -214, -62, 101],
+				diag_x2 = [-566, -530, -437, -341, -247, -153, -117],*/
+				h1 = grid.path("M -595 602").attr("stroke","#898989").attr("strokeWidth","5"),
+				h2 = grid.path("M -630 619").attr("stroke","#898989").attr("strokeWidth","5"),
+				h3 = grid.path("M -675 641").attr("stroke","#898989").attr("strokeWidth","5"),
+				h4 = grid.path("M -733 672").attr("stroke","#898989").attr("strokeWidth","5"),
+				h5 = grid.path("M -811 708").attr("stroke","#898989").attr("strokeWidth","5"),
 				sol = g.select('#sun'),
-				windows = g.select('#windows');
+				windows = g.select('#windows'),
+				f = g.select('#gausBlur');
 
-				g.hover(open,close);
+				var timeOutA, timeOutB, timeOutC, timeOutD, timeOutE;
+
+				$("#one").mouseover(open);
+				$("#one").mouseout(close);
 
 				function open(){
-					console.log(sol);
-					sol.animate({
-						opacity: 0
-					})
+					console.log('mousedover');
 
-					wifi1.animate({
+					function delayA(d) {
+						timeOutA = window.setTimeout(function(){ //everything that waits 300 starts here
+							console.log('timeouta');
+							gridline.animate({
+								path: "M -113 641 L -32 641"
+							}, 200)
+
+						}, d)
+					}
+
+					function delayB(d) {
+						timeOutB = window.setTimeout(function(){ //everything that waits 600 starts here
+							console.log('timeoutb');
+							gridline.animate({
+									path: "M -113 641 L -32 641 L -32 436"
+								}, 200)
+						}, d)
+					}
+
+					function delayC(d){
+						timeOutC = window.setTimeout(function(){
+						wifi1.animate({opacity:1},100)
+					}, d)
+					}
+
+					function delayD(d){
+						timeOutD = window.setTimeout(function(){
+						wifi2.animate({opacity:1},100)					
+					}, d)
+					}
+
+					function delayE(d){
+						timeOutE = window.setTimeout(function(){
+						wifi3.animate({opacity:1},100)
+					}, d)
+					}
+
+					window.clearTimeout(timeOutA);
+					window.clearTimeout(timeOutB);
+					window.clearTimeout(timeOutC);
+					window.clearTimeout(timeOutD);
+					window.clearTimeout(timeOutE);
+				
+					delayA(120);
+					delayB(300);
+					delayC(400);
+					delayD(500);
+					delayE(600);
+					
+					
+
+					solarline.animate({
+						path: "M -267 388 L -125 344"
+					}, 300)
+
+					sol.animate({
+						transform: "t 80 -100 s 0.75",
+						opacity: 0.75
+					}, 300)
+
+					f.animate({
+						stdDeviation: "8"
+					}, 300)
+
+					windows.animate({
 						opacity: 1
-					})
+					}, 300)
+
+					d1.animate({
+						path: "M -785 746 L-566 595"
+					}, 300)
+
+					d2.animate({
+						path: "M -621 746 L-530 641"
+					}, 300)
+
+					d3.animate({
+						path: "M -469 746 L-437 641"
+					}, 300)
+
+					d4.animate({
+						path: "M -341 746 L-341 641"
+					}, 300)
+
+					d5.animate({
+						path: "M -214 746 L-247 641"
+					}, 300)
+
+					d6.animate({
+						path: "M -62 746 L-153 641"
+					}, 300)
+
+					d7.animate({
+						path: "M 101 746 L-117 590"
+					}, 300)
+
+					h1.animate({
+						path: "M -595 602 L -87 602"
+					}, 300)
+					h2.animate({
+						path: "M -630 619 L -46 619"
+					}, 300)
+					h3.animate({
+						path: "M -675 641 L -117 641"
+					}, 300)
+										
+											
+											
+					h4.animate({
+						path: "M -733 672 L 46 672"
+					}, 300)
+					h5.animate({
+						path: "M -811 708 L 133 708"
+					}, 300)
+
+
 
 				}
 
 				function close(){
+					window.clearTimeout(timeOutA);
+					window.clearTimeout(timeOutB);
+					window.clearTimeout(timeOutC);
+					window.clearTimeout(timeOutD);
+					window.clearTimeout(timeOutE);
+					wifi1.animate({
+						opacity: 0
+					}, 300)
+					wifi2.animate({
+						opacity: 0
+					}, 300)
+					wifi3.animate({
+						opacity: 0
+					}, 300)
+					solarline.animate({
+						path: "M -267 388"
+					}, 300)
+
+					gridline.animate({
+						path: "M -113 641"
+					}, 200)
+
+
+					sol.animate({
+						transform: "t 0 0 s 1",
+						opacity: 1
+					}, 300)
+
+					f.animate({
+						stdDeviation: 0
+					}, 300)
+
+
+					windows.animate({
+						opacity: 0
+					}, 300)
+
+					d1.animate({
+						path: "M -785 746"
+					}, 300)
+
+					d2.animate({
+						path: "M -621 746"
+					}, 300)
+
+					d3.animate({
+						path: "M -469 746"
+					}, 300)
+
+					d4.animate({
+						path: "M -341 746"
+					}, 300)
+
+					d5.animate({
+						path: "M -214 746"
+					}, 300)
+
+					d6.animate({
+						path: "M -62 746"
+					}, 300)
+
+					d7.animate({
+						path: "M 101 746"
+					}, 300)
+
+					h1.animate({
+						path: "M -595 602"
+					}, 300)
+					h2.animate({
+						path: "M -630 619"
+					}, 300)
+					h3.animate({
+						path: "M -675 641"
+					}, 300)
+					h4.animate({
+						path: "M -733 672"
+					}, 300)
+					h5.animate({
+						path: "M -811 708"
+					}, 300)
 
 				}
 
@@ -87,8 +300,10 @@ window.onload = function () {
 		g = f.select("svg");
 		s2.append(g);
 		var pwr = g.select('#power'),
-		w1 = g.select('#wire1'),
-		w2 = g.select('#wire2'),
+		brains = g.select('#brains'),
+		wire1 = brains.path('M 218,421').attr("stroke","#000").attr("strokeWidth","7").attr("fill","none"),
+		wire2 = brains.path('M 293,572').attr("stroke","#000").attr("strokeWidth","7").attr("fill","none"),
+		
 		usb = g.select('#usb'),
 		io = g.select('#IO'),
 		beaglebone = g.select('#beaglebone'),
@@ -96,9 +311,58 @@ window.onload = function () {
 		stepper = g.select('#stepper'),
 		nanowifi = g.select('#nanowifi'),
 		all = g.select('#brains');
-		g.hover(open, close);
+
+		var timeOutA, timeOutB, timeOutC, timeOutD, timeOutE;
+
+		
+		$("#two").mouseover(open);
+		$("#two").mouseout(close);
 
 		function open(){
+			function delayA(d){
+				timeOutA = window.setTimeout(function(){
+				wire1.animate({
+					path: "M 218,421 L 293,421"
+				}, 100)
+			}, d)
+			}
+			function delayB(d){
+				timeOutB = window.setTimeout(function(){
+				wire1.animate({
+					path: "M 218,421 L 293,421 L 293,458"
+				}, 100)
+				}, d)
+			}
+			function delayC(d){
+				timeOutC = window.setTimeout(function(){
+				wire2.animate({
+					path: "M 293,572 L 293,671"
+				}, 100)
+				}, d)
+			}
+			function delayD(d){
+				timeOutD = window.setTimeout(function(){
+				wire2.animate({
+					path: "M 293,572 L 293,671 L 527,671"
+				}, 100)
+				}, d)
+			}
+			function delayE(d){
+				timeOutE = window.setTimeout(function(){
+				wire2.animate({
+					path: "M 293,572 L 293,671 L 527,671 L 527,642"
+				}, 100)
+				}, d)
+			}
+
+			window.clearTimeout(timeOutA);
+			window.clearTimeout(timeOutB);
+			window.clearTimeout(timeOutC);
+			window.clearTimeout(timeOutD);
+			window.clearTimeout(timeOutE);
+
+			delayA(200); delayB(300); delayC(500); delayD(600); delayE(700);
+
 			bigeasydriver.animate({
 				transform: "t 86 0"
 			}, 300)
@@ -124,6 +388,18 @@ window.onload = function () {
 		}
 
 		function close(){
+			window.clearTimeout(timeOutA);
+			window.clearTimeout(timeOutB);
+			window.clearTimeout(timeOutC);
+			window.clearTimeout(timeOutD);
+			window.clearTimeout(timeOutE);
+
+			wire1.animate({
+				path: "M 218,421"
+			}, 150)
+			wire2.animate({
+				path: "M 293,572"
+			}, 150)
 			bigeasydriver.animate({
 				transform: "t 0 0"
 			}, 300)
@@ -156,25 +432,41 @@ window.onload = function () {
 		var p1 = g.select("#Pillar1"),
 			p2 = g.select("#Pillar2"),
 			p3 = g.select("#Pillar3"),
-			p4 = g.select("#Pillar4");
-			g.hover(open, close);
+			p4 = g.select("#Pillar4"),
+			running;
+			
+			g.hover(open, close); //maybe mouseon = constant randomization by interval and mouseoff = 0 
 
 			function open(){
-				p1.animate({
-					transform: "t 0 30"
-				}, 300)
-				p2.animate({
-					transform: "t 0 -30"
-				}, 300)
-				p3.animate({
-					transform: "t 0 30"
-				}, 300)
-				p4.animate({
-					transform: "t 0 -30"
-				}, 300)
+
+				running = setInterval(function(){
+					var min = -50,
+					max = 70,
+					h1 = Math.floor(Math.random()*(max - min + 15)) + min, 
+					h2 = Math.floor(Math.random()*(max - min + 15)) + min, 
+					h3 = Math.floor(Math.random()*(max - min + 15)) + min, 
+					h4 = Math.floor(Math.random()*(max - min + 15)) + min;
+
+					console.log(h1 + " " + h2 + " " + h3 + " " + h4);
+
+					p1.animate({
+						transform: "t 0 " +h1 
+					}, 500)
+					p2.animate({
+						transform: "t 0 " + h2
+					}, 500)
+					p3.animate({
+						transform: "t 0 " + h3
+					}, 500)
+					p4.animate({
+						transform: "t 0 " +h4
+					}, 500)
+				}, 800)
+
 			} // end function open
 
 			function close(){
+				clearInterval(running);
 				p1.animate({
 					transform: "t 0 0"
 				}, 300)
@@ -206,20 +498,71 @@ window.onload = function () {
 		s5.append(g);
 		var phoneGuy = g.select("#guy1"),
 			otherGuy = g.select("#guy2"),
-			seseme = g.select("#monument");
-			g.hover(open, close);
+			seseme = g.select("#monument"),
+			social = g.select("#social"),
+			sightline = social.path("M 1543,378").attr({
+				stroke: "#000",
+				strokeWidth: 10,
+				strokeDasharray: 10,
+			}),
+			f = g.select("#gausBlur");
 
-			function open(){				
-				phoneGuy.animate({
-					transform: "t 15 0"
+		var timeOutA, timeOutB;
+			
+			$("#five").mouseover(open);
+			$("#five").mouseout(close);
+
+
+			function open(){	
+				window.clearTimeout(timeOutA);
+				window.clearTimeout(timeOutB);
+				sightline.animate({
+					path: "M 1543,378 L 1635,378",
+					opacity: 1
+				}, 300);
+
+				function delayA(d){
+					timeOutA = window.setTimeout(function(){
+						sightline.animate({
+							path: "M 1543 378"
+						},300)
+						//collapse sightline after 1500ms
+					}, d) 
+				}
+
+				function delayB(d){
+					timeOutB = window.setTimeout(function(){
+						//initiate character movement and potentially monument blurring? 
+						phoneGuy.animate({
+							transform: "t 15 0"
+						}, 400)
+
+						otherGuy.animate({
+							transform: "t 100 0"
+						}, 400)
+					}, d)
+				}	
+
+				delayA(1200);
+				delayB(1500);
+
+				f.animate({
+					stdDeviation: 5
+				}, 300)
+				seseme.animate({
+					opacity: 0.65
 				}, 300)
 
-				otherGuy.animate({
-					transform: "t 100 0"
-				}, 300)
+				
 			}
 
 			function close(){
+				window.clearTimeout(timeOutA);
+				window.clearTimeout(timeOutB);
+				sightline.animate({
+					opacity: 0
+				}, 300)
+
 				phoneGuy.animate({
 					transform: "t 0 0"
 				}, 300)
@@ -227,6 +570,15 @@ window.onload = function () {
 				otherGuy.animate({
 					transform: "t 0 0"
 				}, 300)
+
+				seseme.animate({
+					opacity: 1
+				}, 301),
+
+				f.animate({
+					stdDeviation: 0
+				}, 301)
+
 			}
 	})// end callback function of snap.load diagram_social
 

@@ -2,44 +2,24 @@
 <!-- Generator: Adobe Illustrator 16.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox = "0 0 490 390"
+	 viewBox = "0 0 690 600"
 	 xml:space="preserve">
 <link href='http://fonts.googleapis.com/css?family=Roboto:500,300,400,700' rel='stylesheet' type='text/css' />
 
-<animate
-    id            = "blur1"
-    attributeName = "stdDeviation"
-    from		  = "0,0"
-    to            = "8,6"
-    begin         = "big.begin"
-    dur           = "1s"
-    xlink:href    = "#sunblur"
-    calcMode = "spline"
-    fill = "freeze"
-/>
-<animate
-	id = "blurend"
-    attributeName = "stdDeviation"
-    to            = "0,0"
-    begin         = "indefinite"
-    dur           = "1s"
-    xlink:href    = "#sunblur"
-/>
+
+<defs>
+	<filter id = "blur">
+		<feGaussianBlur id = "gausBlur" stdDeviation = "0" />
+	</filter>
+</defs>
 
 
-
-
-
-
-
-
-<g id="building" pointer-events = "all" transform = "translate(580,-300)">
+<g id="building" pointer-events = "all" transform = "translate(580,-230)">
 
 		
-	<g id="linesetc" opacity = "0" >
+	<g id="linesetc" opacity = "1" >
 
-			<line id="solarline"  fill="none" stroke="#898989" opacity = "0" stroke-width="5" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="1,9" x1="-266.884" y1="388.021" x2="-266.884" y2="388.021">
-			</line>
+		
 		
 		<g id="gridline" >
 			<g>
@@ -68,50 +48,14 @@
 			</path>
 
 		</g>
-		<g id="grid_1_" >
+		<g id="grid" >
 			
-				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-566.394" y1="595.443" x2="-784.88" y2="746.164" id = "d1">
-				</line>
 
-				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-529.762" y1="641.443" x2="-620.957" y2="746.164" id = "d2">
-				</line>
-
-				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-437.019" y1="641.443" x2="-469.411" y2="746.164" id = "d3">
-				</line>
-
-				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-341.762" y1="641.443" x2="-341.762" y2="746.164" id = "d4">
-				</line>
-
-				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-246.505" y1="641.443" x2="-214.114" y2="746.164" id = "d5">
-				</line>
-
-				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-153.762" y1="746.164" x2="-62.567" y2="746.164" id = "d6">	
-				</line>
-
-				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-117.129" y1="595.443" x2="101.359" y2="746.164" id = "d7">
-				</line>
-
-			<g id="horizontal">
-				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-594.762" y1="602.163" x2="-86.762" y2="602.163" id = "h1">
-				</line>
-
-				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-629.762" y1="619.163" x2="-45.762" y2="619.163" id = "h2">
-				</line>
-				
-				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-675.762" y1="641.443" x2="-117.129" y2="641.443" id = "h3">
-				</line>
-
-				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-732.788" y1="672.163" x2="45.915" y2="672.163" id = "h4">
-				</line>
-				
-				<line fill="none" stroke="#898989" stroke-width="5" stroke-miterlimit="10" x1="-811.31" y1="708.163" x2="133.238" y2="708.163" id = "h5">
-				</line>
-
-			</g>
+			
 		</g>
 	</g>
 	
-		<circle id="sun" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" cx="-416.639" cy="403.163" r="89.712" >
+		<circle id="sun" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" cx="-416.639" cy="403.163" r="89.712" filter = "url(#blur)">
 	
 		</circle>
 	<g id="buildings_1_">
