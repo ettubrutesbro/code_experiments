@@ -10,6 +10,10 @@
 		font-family: 'Roboto'; sans-serif;
 		font-weight: 700;
 	}
+
+	.hidden {
+		font-weight: 500;
+	}
 </style>
 
 
@@ -34,18 +38,28 @@
 	</g>
 	<g id="graph">
 		
-			<rect x="1096.264" y="374.318" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="31.078" height="121.197"/>
+			<rect x="1096.264" y="364.318" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="31.078" height="121.197"/>
 		
-			<rect x="1127.342" y="423.964" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="31.078" height="71.551"/>
+			<rect class = "hidden" x="1127.342" y="413.964" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="31.078" height="71.551"/>
 		
-			<rect x="1158.905" y="328.011" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="31.078" height="167.504"/>
+			<rect class = "hidden" x="1158.905" y="318.011" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="31.078" height="167.504"/>
 		
-			<rect x="1189.983" y="400.656" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="31.077" height="94.859"/>
+			<rect class = "hidden" x="1189.983" y="390.656" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="31.077" height="94.859"/>
 	</g>
-	<polyline id="pointerline" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" points="1106.041,495.515 
-		1130.842,530.794 1148.738,530.794 	"/>
 	
-		<text transform="matrix(1 0 0 1 1159.3887 558.7651)" font-size="55.9401">30</text>
+	
+		<text id = "text_a" class = "hidden" transform="matrix(1 0 0 1 1170 545)" font-size="42">30</text>
+		<text id = "text_b" class = "hidden" transform="matrix(1 0 0 1 1195 540)" font-size="21" opacity = "0">55</text>
+		<text id = "text_c" class = "hidden" transform="matrix(1 0 0 1 1195 565)" font-size="21" opacity = "0">18</text>
+		<text id = "text_d" class = "hidden" transform="matrix(1 0 0 1 1195 590)" font-size="21" opacity = "0">83</text>
+
+		<text id = "text_e" class = "hidden" transform="matrix(1 0 0 1 1075 515)" font-size="21" opacity = "0">USE</text>
+		<text id = "text_f" class = "hidden" transform="matrix(1 0 0 1 1075 540)" font-size="21" opacity = "0">SOLAR</text>
+		<text id = "text_g" class = "hidden" transform="matrix(1 0 0 1 1075 565)" font-size="21" opacity = "0">HVAC </text>
+		<text id = "text_h" class = "hidden" transform="matrix(1 0 0 1 1075 590)" font-size="21" opacity = "0">WATER</text>
+
+
+
 </g>
 
 </svg>

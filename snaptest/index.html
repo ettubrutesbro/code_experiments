@@ -489,6 +489,81 @@ window.onload = function () {
 		var g;
 		g = f.select("svg");
 		s4.append(g);
+		var text1 = g.select("#text_a"),
+		text2 = g.select("#text_b"),
+		text3 = g.select("#text_c"),
+		text4 = g.select("#text_d"),
+		text5 = g.select("#text_e"),
+		text6 = g.select("#text_f"),
+		text7 = g.select("#text_g"),
+		text8 = g.select("#text_h"),
+		phone = g.select("#phone"),
+		line = phone.path("M 1106,485 L 1131,521 L 1149,521").attr({
+			stroke: "#000",
+			strokeWidth: "7",
+			fill: "none"
+		});
+
+
+		g.mouseover(open);
+		g.mouseout(close);
+
+		function open(){
+			text1.animate({
+				transform: "matrix(0.5 0 0 0.5 1195 515)",
+			}, 300)
+			text2.animate({
+				opacity: "1"
+			}, 300)
+			text3.animate({
+				opacity: "1"
+			}, 300)
+			text4.animate({
+				opacity: "1"
+			}, 300)
+			line.animate({
+				path: "M 1106,495 L 1150,515 L 1168,515",
+				opacity: 0
+			}, 275)
+			text5.animate({
+				opacity: 1,
+				transform: "matrix(1 0 0 1 1095 515)"
+			}, 300)
+			text6.animate({
+				opacity: 1,
+				transform: "matrix(1 0 0 1 1095 540)"
+			}, 300)
+			text7.animate({
+				opacity: 1,
+				transform: "matrix(1 0 0 1 1095 565)"
+			}, 300)
+			text8.animate({
+				opacity: 1,
+				transform: "matrix(1 0 0 1 1095 590)"
+			}, 300)
+
+		}
+
+		function close(){
+			text1.animate({
+				transform: "matrix(1 0 0 1 1170 545)",
+			}, 300)
+			text2.animate({
+				opacity: "0"
+			}, 300)
+			text3.animate({
+				opacity: "0"
+			}, 300)
+			text4.animate({
+				opacity: "0"
+			}, 300)
+			line.animate({
+				path: "M 1106,485 L 1131,521 L 1149,521",
+				opacity: 1
+			}, 275)
+		}
+
+
 	})
 
 	var s5 = Snap("#five");
