@@ -7,30 +7,58 @@
 <script src="snap.svg-min.js"></script>
 <script src="jquery-2.1.0.min.js"></script>
 
+<style>
+	div {
+		display: inline;
+		border: 1px solid black;
+		
+
+	}
+</style>
+
 </head>
 
 <body>
 
-<div>
-		<svg id = "one"></svg>
+<div style = "margin-left: -30px">
+		<svg id = "one" ></svg>
 </div>
-<div>
-	<svg id = "two"></svg>
+<div style = "margin-left: -100px">
+	<svg id = "two" width = "140px"></svg>
 </div>
-<div>
-	<svg id = "three"></svg>
+<div style = "margin-left: -20px">
+	<svg id = "three" width = "120px"></svg>
 </div>
-<div>
-	<svg id = "four"></svg>
+<div style = "margin-left: 0px">
+	<svg id = "four" width = "100px"></svg>
 </div>
-<div>
-	<svg id = "five"> </svg>
+<div style = "margin-left: 0px">
+	<svg id = "five" width = "190px"> </svg>
 </div>
 
 
 <script>
 window.onload = function () {
+	//jquery div and dimension manipulation animations
+	$('div:first').hover(function(){
+		$(this).animate({marginLeft: '0px', marginRight: '200px'});
+	}, function(){
+		$(this).animate({marginLeft: '-30px', marginRight: '0px'});
+	})
 
+	$('div:nth-of-type(2)').hover(function(){
+		$(this).animate({marginLeft: '-140px',  marginRight: '200px'});
+		$(this).children('svg').animate({width: '280px'});
+		//$('div:first').children('svg').animate({width: '100px'});
+	}, function(){
+		$(this).animate({marginLeft: '-100px',marginRight: '0px'});
+		$(this).children('svg').animate({width: '140px'});
+		
+	})
+
+
+
+	//intra-svg animation functions
 	var s1 = Snap("#one");
 	Snap.load("diagram_building.svg", function(f){
 		var g;
@@ -561,6 +589,23 @@ window.onload = function () {
 				path: "M 1106,485 L 1131,521 L 1149,521",
 				opacity: 1
 			}, 275)
+			text5.animate({
+				opacity: 0,
+				transform: "matrix(1 0 0 1 1075 515)"
+			}, 300)
+			text6.animate({
+				opacity: 0,
+				transform: "matrix(1 0 0 1 1075 540)"
+			}, 300)
+			text7.animate({
+				opacity: 0,
+				transform: "matrix(1 0 0 1 1075 565)"
+			}, 300)
+			text8.animate({
+				opacity: 0,
+				transform: "matrix(1 0 0 1 1075 590)"
+			}, 300)
+
 		}
 
 
