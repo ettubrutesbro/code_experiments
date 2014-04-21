@@ -10,7 +10,8 @@
 <style>
 	div {
 		display: inline;
-		border: 1px solid black;
+	
+	
 		
 
 	}
@@ -43,6 +44,8 @@ window.onload = function () {
 	var first, second, third, fourth, fifth;
 	first = second = third = fourth = fifth = false;
 
+	var z; //global variable gets used as a function when we need to call normally local shit?
+
 	//custom function for changing 5 div svg widths
 	function reWidth(aW, bW, cW, dW, eW) {
 		for(var i = 0; i < arguments.length; i++){
@@ -57,20 +60,30 @@ window.onload = function () {
 	}
 
 	//jquery div and dimension manipulation animations
-	if(!first){
+	
 	$('div:first').hover(function(){
+		if(!first && !second && !third && !fourth && !fifth){
 			$(this).children('svg').animate({width: '300px'});
+		}
 	}, function(){
-			$(this).children('svg').animate({width: '200px'});	
+		if(!first && !second && !third && !fourth && !fifth){
+			$(this).children('svg').animate({width: '200px'});
+			}	
 	})
-	}
-	if(!second){
-		$('div:nth-of-type(2)').hover(function(){
+	
+	$('div:nth-of-type(2)').hover(function(){
+		if(!first && !second && !third && !fourth && !fifth){
 			$(this).children('svg').animate({width: '280px'});
-		}, function(){
-			$(this).children('svg').animate({width: '140px'});	
-		})
-	}
+			$(this).animate({marginLeft: '-110px'});
+		}
+	}, function(){
+		if(!first && !second && !third && !fourth && !fifth){
+			$(this).children('svg').animate({width: '140px'});
+			$(this).animate({marginLeft: '-50px'});
+			}	
+	})
+	
+
 
 	$('div:first').click(function(){
 		if(!first){
@@ -82,54 +95,59 @@ window.onload = function () {
 			reMargin(0, -50, -10, -10, 0);
 		}
 		first = !first;
+		second = third = fourth = fifth = false;
 	})
 
 	$('div:nth-of-type(2)').click(function(){
 		
 		if(!second){
 			reWidth(110,280,35,40,100);
-			reMargin(0,-90,300,0,0);
+			reMargin(0,-90,250,0,0);
 		} else{
 			reWidth(200,140,120,100,190);
 			reMargin(0, -50, -10, -10, 0);
 		}
 		second = !second;
+		first = third = fourth = fifth = false;
 	})
 
 	$('div:nth-of-type(3)').click(function(){	
 			
 		if(!third){
 			reWidth(110,70,150,40,100);
-			reMargin(0,-30,170,170,0);
+			reMargin(0,-30,140,140,0);
 		}else{
 			reWidth(200,140,120,100,190);
 			reMargin(0, -50, -10, -10, 0);
 		}
 		third = !third;
+		second = first = fourth = fifth = false;
 	})
 
 	$('div:nth-of-type(4)').click(function(){	
 			
 		if(!fourth){
 			reWidth(110,70,35,100,100);
-			reMargin(0,-30,0,330,0);
+			reMargin(0,-30,0,280,0);
 		}else{
 			reWidth(200,140,120,100,190);
 			reMargin(0, -50, -10, -10, 0);
 		}
 		fourth = !fourth;
+		second = third = first = fifth = false;
 	})
 
 	$('div:nth-of-type(5)').click(function(){	
 		
 		if(!fifth){
-			reWidth(110,70,35,40,200);
-			reMargin(0,-30,0,0,400);
+			reWidth(110,70,35,40,250);
+			reMargin(0,-30,0,0,300);
 		}else{
 			reWidth(200,140,120,100,190);
 			reMargin(0, -50, -10, -10, 0);
 		}
 		fifth = !fifth;	
+		second = third = fourth = first = false;
 	})
 
 
@@ -183,13 +201,25 @@ window.onload = function () {
 
 				var timeOutA, timeOutB, timeOutC, timeOutD, timeOutE;
 
-				$("#one").mouseover(open);
+				$("#one").mouseover(function(){
+					if(!first && !second && !third && !fourth && !fifth){
+						open();
+					}
+				});
 
 				$("#one").mouseout(function(){
-					if(!first){
-					close();
+					if(!first && !second && !third && !fourth && !fifth){
+						close();
 					}
+
 				})
+
+				setInterval(function(){ // there has got to be a better solution
+					if(second || third || fourth || fifth){
+					console.log('closing time');
+					close();
+				}
+				}, 500);
 
 				function open(){
 					console.log('mousedover');
@@ -424,8 +454,16 @@ window.onload = function () {
 		var timeOutA, timeOutB, timeOutC, timeOutD, timeOutE;
 
 		
-		$("#two").mouseover(open);
-		$("#two").mouseout(close);
+		$("#two").mouseover(function(){
+			if(!second){
+				open();
+			}
+		});
+		$("#two").mouseout(function(){
+			if(!first && !second && !third && !fourth && !fifth){
+				close();
+			}	
+		});
 
 		function open(){
 			function delayA(d){
@@ -544,7 +582,18 @@ window.onload = function () {
 			p4 = g.select("#Pillar4"),
 			running;
 			
-			g.hover(open, close); //maybe mouseon = constant randomization by interval and mouseoff = 0 
+			//g.hover(open, close); //maybe mouseon = constant randomization by interval and mouseoff = 0 
+
+		$("#three").mouseover(function(){
+			if(!first && !second && !third && !fourth && !fifth){
+				open();
+			}
+		});
+		$("#three").mouseout(function(){
+			if(!first && !second && !third && !fourth && !fifth){
+				close();
+			}	
+		});
 
 			function open(){
 
@@ -613,9 +662,17 @@ window.onload = function () {
 			fill: "none"
 		});
 
-
-		g.mouseover(open);
-		g.mouseout(close);
+		$("#four").mouseover(function(){
+				if(!first && !second && !third && !fourth && !fifth){
+					open();
+				}
+			});
+		$("#four").mouseout(function(){
+				if(!first && !second && !third && !fourth && !fifth){
+				close();
+				}
+		})
+	
 
 		function open(){
 			text1.animate({
@@ -708,8 +765,16 @@ window.onload = function () {
 
 		var timeOutA, timeOutB;
 			
-			$("#five").mouseover(open);
-			$("#five").mouseout(close);
+			$("#five").mouseover(function(){
+				if(!first && !second && !third && !fourth && !fifth){
+					open();
+				}
+			});
+			$("#five").mouseout(function(){
+				if(!first && !second && !third && !fourth && !fifth){
+				close();
+				}
+			})
 
 
 			function open(){	
