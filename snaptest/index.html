@@ -44,6 +44,11 @@ window.onload = function () {
 	var first, second, third, fourth, fifth;
 	first = second = third = fourth = fifth = false;
 
+	/*$(document).click(function(){
+		console.log(first + " " + second + " " + third + " " + fourth + " " + fifth);
+	}
+		)*/
+
 	//custom function for changing 5 div svg widths
 	function reWidth(aW, bW, cW, dW, eW) {
 		for(var i = 0; i < arguments.length; i++){
@@ -84,6 +89,7 @@ window.onload = function () {
 
 
 	$('div:first').click(function(){
+		second = third = fourth = fifth = false;
 		if(!first){
 			console.log('expand');
 			reWidth(300,70,35,40,100);
@@ -93,11 +99,12 @@ window.onload = function () {
 			reMargin(0, -50, -10, -10, 0);
 		}
 		first = !first;
-		second = third = fourth = fifth = false;
+		
+
 	})
 
 	$('div:nth-of-type(2)').click(function(){
-		
+		first = third = fourth = fifth = false;
 		if(!second){
 			reWidth(110,280,35,40,100);
 			reMargin(0,-90,250,0,0);
@@ -106,11 +113,11 @@ window.onload = function () {
 			reMargin(0, -50, -10, -10, 0);
 		}
 		second = !second;
-		first = third = fourth = fifth = false;
+		
 	})
 
 	$('div:nth-of-type(3)').click(function(){	
-			
+		second = first = fourth = fifth = false;
 		if(!third){
 			reWidth(110,70,150,40,100);
 			reMargin(0,-30,140,140,0);
@@ -119,11 +126,11 @@ window.onload = function () {
 			reMargin(0, -50, -10, -10, 0);
 		}
 		third = !third;
-		second = first = fourth = fifth = false;
+		
 	})
 
 	$('div:nth-of-type(4)').click(function(){	
-			
+		second = third = first = fifth = false;
 		if(!fourth){
 			reWidth(110,70,35,100,100);
 			reMargin(0,-30,0,280,0);
@@ -132,11 +139,11 @@ window.onload = function () {
 			reMargin(0, -50, -10, -10, 0);
 		}
 		fourth = !fourth;
-		second = third = first = fifth = false;
+		
 	})
 
 	$('div:nth-of-type(5)').click(function(){	
-		
+		second = third = fourth = first = false;
 		if(!fifth){
 			reWidth(110,70,35,40,250);
 			reMargin(0,-30,0,0,300);
@@ -145,9 +152,11 @@ window.onload = function () {
 			reMargin(0, -50, -10, -10, 0);
 		}
 		fifth = !fifth;	
-		second = third = fourth = first = false;
+		
 	})
 
+
+	
 
 
 	//intra-svg animation functions
@@ -206,11 +215,17 @@ window.onload = function () {
 				});
 
 				$("#one").mouseout(function(){
-					if(!first && !second && !third && !fourth && !fifth){
+					if(!first){
 						close();
 					}
-
 				})
+
+				$("#one").click(function(){
+					open();
+				})
+
+
+					// listener / handler 
 
 				setInterval(function(){ // there has got to be a better solution
 					if(second || third || fourth || fifth){
@@ -463,6 +478,17 @@ window.onload = function () {
 			}	
 		});
 
+		$("#two").click(function(){
+			open();
+		})
+
+		setInterval(function(){ // there has got to be a better solution
+					if(first || third || fourth || fifth){
+					console.log('closing time');
+					close();
+				}
+				}, 500);
+
 		function open(){
 			function delayA(d){
 				timeOutA = window.setTimeout(function(){
@@ -500,8 +526,8 @@ window.onload = function () {
 				}, d)
 			}
 
-			window.clearTimeout(timeOutA);
-			window.clearTimeout(timeOutB);
+			clearTimeout(timeOutA); //get rid of window
+			clearTimeout(timeOutB);
 			window.clearTimeout(timeOutC);
 			window.clearTimeout(timeOutD);
 			window.clearTimeout(timeOutE);
@@ -593,6 +619,17 @@ window.onload = function () {
 			}	
 		});
 
+		$("#three").click(function(){
+					//open();
+				})
+
+		setInterval(function(){ // there has got to be a better solution
+					if(second || first || fourth || fifth){
+					console.log('closing time');
+					close();
+				}
+				}, 500);
+
 			function open(){
 
 				running = setInterval(function(){
@@ -670,6 +707,17 @@ window.onload = function () {
 				close();
 				}
 		})
+
+		$("#four").click(function(){
+					open();
+				})
+
+		setInterval(function(){ // there has got to be a better solution
+					if(second || third || first || fifth){
+					console.log('closing time');
+					close();
+				}
+				}, 500);
 	
 
 		function open(){
@@ -773,6 +821,17 @@ window.onload = function () {
 				close();
 				}
 			})
+
+			$("#five").click(function(){
+					open();
+				})
+
+			setInterval(function(){ // there has got to be a better solution
+					if(second || third || fourth || first){
+					console.log('closing time');
+					close();
+				}
+				}, 500);
 
 
 			function open(){	
