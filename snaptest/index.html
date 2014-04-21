@@ -44,8 +44,6 @@ window.onload = function () {
 	var first, second, third, fourth, fifth;
 	first = second = third = fourth = fifth = false;
 
-	var z; //global variable gets used as a function when we need to call normally local shit?
-
 	//custom function for changing 5 div svg widths
 	function reWidth(aW, bW, cW, dW, eW) {
 		for(var i = 0; i < arguments.length; i++){
@@ -455,7 +453,7 @@ window.onload = function () {
 
 		
 		$("#two").mouseover(function(){
-			if(!second){
+			if(!first && !second && !third && !fourth && !fifth){
 				open();
 			}
 		});
