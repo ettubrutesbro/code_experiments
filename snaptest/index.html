@@ -20,16 +20,16 @@
 
 <body>
 
-<div style = "margin-left: -30px">
-		<svg id = "one" ></svg>
+<div style = "margin-left: 0px">
+		<svg id = "one" width = "200px"></svg>
 </div>
-<div style = "margin-left: -100px">
+<div style = "margin-left: -50px">
 	<svg id = "two" width = "140px"></svg>
 </div>
-<div style = "margin-left: -20px">
+<div style = "margin-left: -10px">
 	<svg id = "three" width = "120px"></svg>
 </div>
-<div style = "margin-left: 0px">
+<div style = "margin-left: -10px">
 	<svg id = "four" width = "100px"></svg>
 </div>
 <div style = "margin-left: 0px">
@@ -39,21 +39,97 @@
 
 <script>
 window.onload = function () {
+
+	var first, second, third, fourth, fifth;
+	first = second = third = fourth = fifth = false;
+
+	//custom function for changing 5 div svg widths
+	function reWidth(aW, bW, cW, dW, eW) {
+		for(var i = 0; i < arguments.length; i++){
+			$('div:nth-of-type(' + (i+1) +')').children('svg').animate({width: arguments[i] + 'px'},450);
+		}
+	}
+	//custom function for changing 5 div margin-lefts
+	function reMargin(aM, bM, cM, dM, eM){
+		for(var i = 0; i < arguments.length; i++){
+			$('div:nth-of-type(' + (i+1) +')').animate({marginLeft: arguments[i] + 'px'},450);
+		}
+	}
+
 	//jquery div and dimension manipulation animations
+	if(!first){
 	$('div:first').hover(function(){
-		$(this).animate({marginLeft: '0px', marginRight: '200px'});
+			$(this).children('svg').animate({width: '300px'});
 	}, function(){
-		$(this).animate({marginLeft: '-30px', marginRight: '0px'});
+			$(this).children('svg').animate({width: '200px'});	
+	})
+	}
+	if(!second){
+		$('div:nth-of-type(2)').hover(function(){
+			$(this).children('svg').animate({width: '280px'});
+		}, function(){
+			$(this).children('svg').animate({width: '140px'});	
+		})
+	}
+
+	$('div:first').click(function(){
+		if(!first){
+			console.log('expand');
+			reWidth(300,70,35,40,100);
+			reMargin(0, 170, 0, 0, 0);
+		}else{
+			reWidth(200,140,120,100,190);
+			reMargin(0, -50, -10, -10, 0);
+		}
+		first = !first;
 	})
 
-	$('div:nth-of-type(2)').hover(function(){
-		$(this).animate({marginLeft: '-140px',  marginRight: '200px'});
-		$(this).children('svg').animate({width: '280px'});
-		//$('div:first').children('svg').animate({width: '100px'});
-	}, function(){
-		$(this).animate({marginLeft: '-100px',marginRight: '0px'});
-		$(this).children('svg').animate({width: '140px'});
+	$('div:nth-of-type(2)').click(function(){
 		
+		if(!second){
+			reWidth(110,280,35,40,100);
+			reMargin(0,-90,300,0,0);
+		} else{
+			reWidth(200,140,120,100,190);
+			reMargin(0, -50, -10, -10, 0);
+		}
+		second = !second;
+	})
+
+	$('div:nth-of-type(3)').click(function(){	
+			
+		if(!third){
+			reWidth(110,70,150,40,100);
+			reMargin(0,-30,170,170,0);
+		}else{
+			reWidth(200,140,120,100,190);
+			reMargin(0, -50, -10, -10, 0);
+		}
+		third = !third;
+	})
+
+	$('div:nth-of-type(4)').click(function(){	
+			
+		if(!fourth){
+			reWidth(110,70,35,100,100);
+			reMargin(0,-30,0,330,0);
+		}else{
+			reWidth(200,140,120,100,190);
+			reMargin(0, -50, -10, -10, 0);
+		}
+		fourth = !fourth;
+	})
+
+	$('div:nth-of-type(5)').click(function(){	
+		
+		if(!fifth){
+			reWidth(110,70,35,40,200);
+			reMargin(0,-30,0,0,400);
+		}else{
+			reWidth(200,140,120,100,190);
+			reMargin(0, -50, -10, -10, 0);
+		}
+		fifth = !fifth;	
 	})
 
 
@@ -108,7 +184,12 @@ window.onload = function () {
 				var timeOutA, timeOutB, timeOutC, timeOutD, timeOutE;
 
 				$("#one").mouseover(open);
-				$("#one").mouseout(close);
+
+				$("#one").mouseout(function(){
+					if(!first){
+					close();
+					}
+				})
 
 				function open(){
 					console.log('mousedover');
@@ -569,7 +650,6 @@ window.onload = function () {
 				opacity: 1,
 				transform: "matrix(1 0 0 1 1095 590)"
 			}, 300)
-
 		}
 
 		function close(){
@@ -605,7 +685,6 @@ window.onload = function () {
 				opacity: 0,
 				transform: "matrix(1 0 0 1 1075 590)"
 			}, 300)
-
 		}
 
 
