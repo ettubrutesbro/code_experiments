@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Narrative Diagram (Linear)</title>
+
+<script src="snap.svg-min.js"></script>
+<script src="jquery-2.1.0.min.js"></script>
+<style>
+	div{
+		height: 500px;
+		border: 1px black solid;
+	}
+</style>
+</head>
+
+<body>
+
+<div id = "svgContainer">
+	<svg id = "diagram_big"></svg>
+</div>
+
+<script>
+$(document).ready(function(){
+
+
+
+	var s = Snap("#diagram_big");
+		Snap.load("diagram.svg", function(f){
+			var g;
+			g = f.select("svg");
+			s.append(g);
+
+			s.attr({
+				width: "900px",
+				height: "250px",
+			})
+
+			var building = g.select('#building'), //item level
+				brains = g.select('#brains'),
+				seseme = g.select('#seseme'),
+				phone = g.select('#phone'),
+				social = g.select('#social'),
+			//group level
+
+				//"extraneous" arrays / vars for disappearing during minification
+				buildingExtra = building.select('#extraneous'),
+				brainsExtra = brains.selectAll('.extraneous'), //array needns forEach for anim
+				sesemeExtra = seseme.selectAll('.extraneous'), //array needns forEach for anim
+				phoneExtra = phone.select('#extraneous'),
+				socialExtra = social.select('#extraneous'),
+				extras = [buildingExtra, brainsExtra, sesemeExtra, phoneExtra, socialExtra], //can we use this?
+				
+				//group components
+					// individual paths etc. for drawing
+
+				//building
+				sol = building.select('#sun'),
+				gridline = building.select('#gridline'),
+					grid_l = gridline.path("M -113 641"), //dashed line
+				solarline = building.select('#linesetc'),
+					solar_l = solarline.path("M -267 388"), // dashed line
+				buildinglines = [solar_l, grid_l],
+				wifi1 = building.select('#wifi1'),
+				wifi2 = building.select('#wifi2'),
+				wifi3 = building.select('#wifi3'),
+				grid = building.select('#grid'), //below are all solid lines and need attr
+					d1 = grid.path("M-785 746"), d2 = grid.path("M-621 746"),d3 = grid.path("M-469 746"),d4 = grid.path("M-341 746"),d5 = grid.path("M-214 746"),d6 = grid.path("M -62 746"),d7 = grid.path("M 101 746"),
+					h1 = grid.path("M -595 602"),h2 = grid.path("M -630 619"),h3 = grid.path("M -675 641"),h4 = grid.path("M -733 672"),h5 = grid.path("M -811 708"),
+					gridlines = [d1,d2,d3,d4,d5,d6,d7,h1,h2,h3,h4,h5];
+
+				windows = building.select('#windows'),
+				buildingFilter = g.select('#gausBlur'),
+
+				//brains
+				stepper = brains.select('#stepper'),
+				bigeasydriver = brains.select('#bigeasydriver'),
+				beaglebone = brains.select('#beaglebone'),
+				usb = brains.select('#usb'),
+				nanowifi = brains.select('#nanowifi'),
+				pwr = brains.select('#power'),
+				inputoutput = brains.select('#IO'),
+					wire1 = brains.path('M 218,421'),
+					wire2 = brains.path('M 293,572'),
+
+				//seseme
+				sesemePillar1 = seseme.select('#Pillar1'),sesemePillar2 = seseme.select('#Pillar2'),sesemePillar3 = seseme.select('#Pillar3'),sesemePillar4 = seseme.select('#Pillar4'),
+
+				//phone
+				text1 = phone.select("#text_a"),text2 = phone.select("#text_b"),text3 = phone.select("#text_c"),text4 = phone.select("#text_d"),text5 = phone.select("#text_e"),text6 = phone.select("#text_f"),text7 =phone.select("#text_g"),text8 = phone.select("#text_h"),
+				phoneline = phone.path("M 1106,495 L 1131,531 L 1155,531").attr({stroke: "#000", strokeWidth: 5, fill: "none"}), 
+
+
+				//social
+				phoneGuy = social.select("#guy1"),
+				otherGuy = social.select("#guy2"),
+				sightline = social.path("M 1543,378").attr({stroke: "#000", strokeWidth: 10, strokeDasharray: 10}),
+				socialFilter = g.select("#gausBlur");
+
+				//sets attributes for arrays of lines
+				gridlines.forEach(function(ele){ //grid lines in building attr
+					ele.attr({ 
+						stroke: "#898989",
+						strokeWidth: 5,
+						
+					})
+				})
+
+				buildinglines.forEach(function(ele){ // dotted lines solar/grid
+					ele.attr({
+						stroke: "#898989",
+						strokeWidth: 10,
+						fill: "none",
+						strokeLinecap: "round",
+						strokeDasharray: "0.1, 20"
+					})
+				})
+				
+		//ANIMATION
+			//mouseover: some animations play
+			//click: mouseover anims + extra anims + other items move and get smaller
+
+			// MOUSEOVERS - SMALL SCALE TRANSFORMS AND OTHER SHIT THAT REACTS A LITTLE
+			building.mouseover(function(){
+				console.log('building');
+				sol.animate({
+						transform: "t 80 -100 s 0.75",
+						opacity: 0.75
+					}, 300)
+				windows.animate({
+					opacity: 1
+				}, 300)
+
+			
+
+			})
+			brains.mouseover(function(){
+				console.log('brains');
+				beaglebone.animate({
+					transform: "t -45 0"
+				}, 300)
+				stepper.animate({
+					transform: "t 35 0"
+				}, 300)
+			})
+			seseme.mouseover(function(){
+				console.log('seseme');
+				var min = -50,
+					max = 60,
+					h1 = Math.floor(Math.random()*(max - min + 15)) + min, 
+					h2 = Math.floor(Math.random()*(max - min + 15)) + min, 
+					h3 = Math.floor(Math.random()*(max - min + 15)) + min, 
+					h4 = Math.floor(Math.random()*(max - min + 15)) + min;
+
+					sesemePillar1.animate({
+						transform: "t 0 " +h1 
+					}, 500)
+					sesemePillar2.animate({
+						transform: "t 0 " + h2
+					}, 500)
+					sesemePillar3.animate({
+						transform: "t 0 " + h3
+					}, 500)
+					sesemePillar4.animate({
+						transform: "t 0 " +h4
+					}, 500)
+			})
+			phone.mouseover(function(){
+
+				console.log('phone');
+				var numberArr = [text2, text3, text4, text5, text6, text7, text8];
+
+				numberArr.forEach(function(ele, i){
+					ele.animate({
+						opacity: 1
+					}, 300);
+
+				})
+
+				phoneline.animate({
+					path: "M 1106,495 L 1150,515 L 1168,515",
+					opacity: 0
+				}, 305)
+				text1.animate({
+					transform: "matrix(0.5 0 0 0.45 1190 518)",
+				}, 300)
+				text5.animate({ 
+					transform: "matrix(1 0 0 1 1095 515)"
+				}, 300)
+				text6.animate({
+					transform: "matrix(1 0 0 1 1095 540)"
+				}, 300)
+				text7.animate({
+					transform: "matrix(1 0 0 1 1095 565)"
+				}, 300)
+				text8.animate({
+					transform: "matrix(1 0 0 1 1095 590)"
+				}, 300) 
+		})
+
+			
+			social.mouseover(function(){
+				console.log('social');
+				sightline.animate({
+					path: "M 1543,378 L 1635,378",
+				},300)
+			})
+
+			// MOUSE OUT EVENTS - SHOULD PROBABLY ONLY FIRE IF NOT ALREADY EXPANDED...
+			building.mouseout(function(){
+				console.log('building out');
+				sol.animate({
+					transform: "t 0 0 s 1"
+				}, 300)
+				windows.animate({
+					opacity: 0
+				}, 300)
+			})
+
+			
+			brains.mouseout(function(){
+				console.log('brains out');
+				beaglebone.animate({
+					transform: "t 0 0"
+				}, 300)
+				stepper.animate({
+					transform: "t 0 0"
+				}, 300)
+			})
+			seseme.mouseout(function(){
+				console.log('seseme out');
+				sesemePillar1.animate({
+					transform: "t 0 0"
+				}, 500)
+				sesemePillar2.animate({
+					transform: "t 0 0"
+				}, 500)
+				sesemePillar3.animate({
+					transform: "t 0 0"
+				}, 500)
+				sesemePillar4.animate({
+					transform: "t 0 0"
+				}, 500)
+			})
+			phone.mouseout(function(){
+				console.log('phone out');
+				var numberArr = [text2, text3, text4, text5, text6, text7, text8];
+				numberArr.forEach(function(ele, i){
+					ele.animate({
+						opacity: 0
+					}, 300);
+				})
+				phoneline.animate({
+					path: "M 1106,485 L 1131,521 L 1149,521",
+					opacity: 1
+				}, 300)
+				text1.animate({
+					transform: "matrix(1 0 0 1 1170 545)",
+				}, 300);
+				text5.animate({
+					transform: "matrix(1 0 0 1 1075 515)"
+				}, 300)
+				text6.animate({
+					transform: "matrix(1 0 0 1 1075 540)"
+				}, 300)
+				text7.animate({
+					transform: "matrix(1 0 0 1 1075 565)"
+				}, 300)
+				text8.animate({
+					transform: "matrix(1 0 0 1 1075 590)"
+				}, 300)
+
+			})
+			social.mouseout(function(){
+				console.log('social out');
+				sightline.animate({
+					path: "M 1543,378",
+				},300)
+			})
+
+			// CLICK EVENTS - RESULT IN EXPANSION AND REVEAL
+			building.click(function(){
+				console.log('building click');
+					var pathArr = ["M -785 746 L-566 595", "M -621 746 L-530 641", "M -469 746 L-437 641", "M -341 746 L-341 641", "M -214 746 L-247 641", "M -62 746 L-153 641", "M 101 746 L-117 590", "M -595 602 L -87 602", "M -630 619 L -46 619", "M -675 641 L -117 641", "M -733 672 L 46 672", "M -811 708 L 133 708"]
+
+				gridlines.forEach(function(ele, i){
+					ele.animate({
+						path: pathArr[i]
+					}, 300)
+				})
+
+				building.animate({
+					transform: "t 230 -150 s 1.25"
+				},300)
+				minimize(1,false,true,true,true,true);
+
+			})
+			brains.click(function(){
+				console.log('brains click');
+				brains.animate({
+					transform: "t -200 -110 s 1.35"
+				},300)
+ 				minimize(2, true, false, true,true,true);
+			})
+			seseme.click(function(){
+				console.log('seseme click');
+				seseme.animate({
+					transform: "t -50 -45 s 1.15"
+				},300)
+				minimize(3, true, true, false, true, true);
+			})
+			phone.click(function(){
+				console.log('phone click');
+				phone.animate({
+					transform: "t 155 -80 s 1.3"
+				},300)
+				minimize(4, true, true, true, false, true);
+
+			})
+			social.click(function(){
+				console.log('social click');
+
+				social.transform({transform: "t 0 0 s 1"});
+				
+				social.animate({
+					transform: "t -140 -90 s 1.5"
+				},300)
+
+				minimize(5, true, true, true, true, false);
+			})
+		
+	
+		function minimize(whichOne, build, brain, sesem, phon, socia){ //opacity of extraneous elements + scale of overall item
+
+				//push whichOne into beginning of array, remove [2]....check for [0] == [1] etc.  
+				if(build){
+					buildingExtra.animate({
+						opacity: 0
+					},300);
+					building.animate({
+						transform: "t -130 190 s 0.4"
+					},300)
+				}
+
+				if(brain){
+					brainsExtra.forEach(function(ele){
+						ele.animate({
+							opacity:0
+						},300)
+					})
+					if(whichOne < 2){ //go right
+						brains.animate({
+							transform: "t 950 180 s 0.45"
+						},300)
+					}else{ //go left
+						brains.animate({
+							transform: "t -420 180 s 0.45"
+						},300)
+					}
+					
+				}
+
+				if(sesem){
+					sesemeExtra.forEach(function(ele){
+						ele.animate({
+							opacity:0
+						},300)
+					})
+					if(whichOne < 3){ //go right
+						seseme.animate({
+							transform: "t 800 250 s 0.45"
+						},300)
+					} else { //go left
+						seseme.animate({
+							transform: "t -550 240 s 0.45"
+						},300)
+
+					}
+				}
+
+				if(phon){
+					phoneExtra.animate({
+						opacity:0
+					},300)
+
+					if(whichOne < 4){ //go right
+						phone.animate({
+							transform: "t 350 160 s 0.65"
+						},300)
+					} else { //go left
+						phone.animate({
+							transform: "t -970 160 s 0.65"
+						},300)
+					}
+				}
+
+				if(socia){
+					socialExtra.animate({
+						opacity:0
+					},300)
+					social.animate({
+						transform: "t 470 200 s 0.4"
+					}, 300)
+				}
+			}
+
+
+
+	})
+})
+
+</script>
+
+</body>
