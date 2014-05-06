@@ -4,7 +4,13 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 	 viewBox="-700 0 3000 800"
 	 xml:space="preserve">
-
+<style>
+	#body_3, #body_3a {
+		width: 100px;
+		border: 1px black solid;
+		color: green;
+	}
+</style>
 <defs>
 	<filter id = "blur">
 		<feGaussianBlur id = "gausBlur" stdDeviation = "0" />
@@ -113,7 +119,7 @@
 	</g>
 	<g id="bigeasydriver">
 			<polyline id="wire1" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="
-		168,421 250,421 250,643, 335,643 " stroke-dasharray = "1000" stroke-dashoffset = "100000" />
+		168,421 250,421 250,630, 335,630 " stroke-dasharray = "400" stroke-dashoffset = "400" />
 			<rect x="182.399" y="441.013" fill="#FFFFFF" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="134.435" height="152.024"/>
 		<g class="extraneous">
 			
@@ -596,11 +602,11 @@
 
 <g id="building">
 	<g id="linesetc">
-		
+		<path id = "weirdline" stroke = "#898989" d="M -113 641" stroke-width = "5" />
+		<path id = "pointer1" fill = "none" stroke = "#898989" d="M -27 641" stroke-width = "6" stroke-dasharray = "1 14" stroke-linecap = "round"/>
+		<path id = "pointer2" fill = "none" stroke = "#898989" d="M -267 388" stroke-width = "6" stroke-dasharray = "1 14" stroke-linecap = "round" />
 			
-		<g id="gridline" display="inline">
-			
-		</g>
+	
 
 		<g id="wi_fi" display="inline">
 			<path id="wifi3" fill="#898989" d="M-101.588,304.307v11.675c50.19,0,91.022,40.833,91.022,91.022H1.109
@@ -609,10 +615,11 @@
 				C-30.19,367.635-62.219,335.606-101.588,335.606z" opacity = "0"/>
 			<path id="wifi1" fill="#898989" d="M-101.588,365.91v9.788c17.262,0,31.306,14.045,31.306,31.307h9.789
 				C-60.493,384.344-78.927,365.91-101.588,365.91z" opacity = "0"/>
+
+	
 		</g>
 		<g id="grid" display="inline">
-			
-			
+		
 			
 		</g>
 	</g>
@@ -982,11 +989,22 @@
 </g>
 
 <g id = "text">
-	<text transform="matrix(1 0 0 1 -567.6279 736.1626)" font-family="'Forza-Medium'" font-size="30" letter-spacing="1">NETWORKED BUILDING DATA</text>
-	<text transform="matrix(1 0 0 1 17.3721 736.1626)" font-family="'Forza-Medium'" font-size="30" letter-spacing="1">COMPUTING &amp; ELECTRONICS</text>
-	<text transform="matrix(1 0 0 1 612.3711 736.1626)"><tspan x="0" y="0" font-family="'Forza-Medium'" font-size="30" letter-spacing="1">TANGIBLE DESIGN</tspan></text>
-	<text transform="matrix(1 0 0 1 998.3721 736.1626)" font-family="'Forza-Medium'" font-size="30" letter-spacing="1">DATA VISUALIZATION</text>
-	<text transform="matrix(1 0 0 1 1443.3721 736.1626)" font-family="'Forza-Medium'" font-size="30" letter-spacing="1">COMMUNITY ENGAGEMENT</text>
+	<text id = "title_1" transform="matrix(1 0 0 1 -567 740)" font-size="24pt">NETWORKED BUILDING DATA</text>
+
+	<text id = "head_1" transform="matrix(1 0 0 1 340 200)" font-size="36pt" opacity = "0"> NETWORKED BUILDING DATA </text>
+	<text id = "body_1" transform="matrix(1 0 0 1 420 265)" font-size="24pt" opacity = "0"> buildigtho untoehuntoeha</text>
+
+	<text id = "title_2" transform="matrix(1 0 0 1 17 740)" font-size="24pt">COMPUTING &amp; ELECTRONICS</text>
+	<text id = "head_2" transform = "matrix(1 0 0 1 450 200)" font-size = "36pt" opacity = "0"> COMPUTING &amp; ELECTRONICS </text>
+	<text id = "body_2" transform = "matrix(1 0 0 1 530 265)" font-size = "24pt" opacity = "0"> eoau</text>
+
+	<text id = "title_3" transform="matrix(1 0 0 1 612 740)" font-size="24pt" >TANGIBLE DESIGN</text>
+	<text id = "head_3" opacity = "0" transform = "matrix(1 0 0 1 140 200)" font-size = "36pt">TANGIBLE DESIGN </text>
+	<text id = "body_3" opacity = "0" transform = "matrix(1 0 0 1 60 265)" font-size = "24pt"> eoauueouoeauoeauoaeuaoeuoeauoaeue</text>	
+	<text id = "body_3a" opacity = "0" transform = "matrix(1 0 0 1 930 265)" font-size = "24pt">eoauueouoeauoeauoaeuaoeuoeauoaeue</text>
+
+	<text id = "title_4" transform="matrix(1 0 0 1 998 740)" font-size="24pt">DATA VISUALIZATION</text>
+	<text id = "title_5" transform="matrix(1 0 0 1 1443 740)" font-size="24pt">COMMUNITY ENGAGEMENT</text>
 </g>
 
 
