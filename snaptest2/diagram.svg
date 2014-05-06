@@ -9,6 +9,9 @@
 	<filter id = "blur">
 		<feGaussianBlur id = "gausBlur" stdDeviation = "0" />
 	</filter>
+	<filter id = "blur2">
+		<feGaussianBlur id = "gausBlur2" stdDeviation = "0" />
+	</filter>
 </defs>
 
 <g id="seseme">
@@ -109,7 +112,8 @@
 		</g>
 	</g>
 	<g id="bigeasydriver">
-		
+			<polyline id="wire1" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="
+		168,421 250,421 250,643, 335,643 " stroke-dasharray = "1000" stroke-dashoffset = "100000" />
 			<rect x="182.399" y="441.013" fill="#FFFFFF" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="134.435" height="152.024"/>
 		<g class="extraneous">
 			
@@ -128,6 +132,17 @@
 		</g>
 	</g>
 	<g id="beaglebone">
+
+			<g id="nanowifi" opacity = "0">
+		
+			<rect x="84.768" y="299.522" display="inline" fill="#FFFFFF" stroke="#898989" stroke-width="7" stroke-miterlimit="10" width="42" height="42.602"/>
+		
+			<rect x="78.171" y="274.856" display="inline" fill="#FFFFFF" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="55.281" height="24.666"/>
+		
+			<rect x="94.831" y="325.918" display="inline" fill="#FFFFFF" stroke="#898989" stroke-width="5" stroke-miterlimit="10" width="3.208" height="3.208"/>
+		
+			<rect x="113.609" y="325.918" display="inline" fill="#FFFFFF" stroke="#898989" stroke-width="5" stroke-miterlimit="10" width="3.208" height="3.208"/>
+	</g>
 		<path fill="#FFFFFF" stroke="#000000" stroke-width="7" stroke-miterlimit="10" d="M233.921,627.898
 			c0,18.111-11.861,32.795-26.492,32.795H65.042c-14.631,0-26.491-14.684-26.491-32.795V404.203
 			c0-18.111,11.86-32.795,26.491-32.795h142.387c14.631,0,26.492,14.684,26.492,32.795V627.898z"/>
@@ -145,8 +160,7 @@
 			
 				<rect x="46.768" y="409.523" fill="#FFFFFF" stroke="#000000" stroke-width="5" stroke-miterlimit="10" width="23.667" height="214"/>
 		</g>
-	</g>
-	<path id="usb" display="none" fill="#898989" d="M105.172,371.133l-2.899,5.021h2.068v25.66l-5.279-4.997
+			<path id="usb" opacity = "0" fill="#898989" d="M105.172,371.133l-2.899,5.021h2.068v25.66l-5.279-4.997
 		c-0.34-0.425-0.58-0.981-0.593-1.554c0-2.315,0-3.69-0.001-4.196c0.978-0.343,1.683-1.265,1.683-2.36
 		c0-1.386-1.125-2.51-2.511-2.51c-1.387,0-2.511,1.124-2.511,2.51c0,1.096,0.705,2.018,1.682,2.36l-0.001,4.147
 		c0,1.123,0.617,2.301,1.34,3.051c-0.021-0.021-0.044-0.042,0,0c0.018,0.018,5.601,5.302,5.601,5.302
@@ -155,17 +169,8 @@
 		c0.015-0.57,0.252-1.125,0.593-1.55c0,0,5.583-5.284,5.6-5.3c0.045-0.043,0.022-0.021,0,0c0.724-0.75,1.339-1.929,1.339-3.053
 		l0-3.996h1.684v-5.021h-5.021v5.021h1.681c0,0-0.002,1.053-0.002,4.045c-0.013,0.572-0.252,1.129-0.593,1.555l-5.279,4.998v-19.385
 		h2.071L105.172,371.133z"/>
-	<g id="nanowifi" display="none">
-		
-			<rect x="84.768" y="299.522" display="inline" fill="#FFFFFF" stroke="#898989" stroke-width="7" stroke-miterlimit="10" width="42" height="42.602"/>
-		
-			<rect x="78.171" y="274.856" display="inline" fill="#FFFFFF" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="55.281" height="24.666"/>
-		
-			<rect x="94.831" y="325.918" display="inline" fill="#FFFFFF" stroke="#898989" stroke-width="5" stroke-miterlimit="10" width="3.208" height="3.208"/>
-		
-			<rect x="113.609" y="325.918" display="inline" fill="#FFFFFF" stroke="#898989" stroke-width="5" stroke-miterlimit="10" width="3.208" height="3.208"/>
-	</g>
-	<g id="IO" display="none">
+
+	<g id="IO" opacity = "0">
 		<g display="inline">
 			<g>
 				<rect x="51.674" y="608.763" fill="#FFFFFF" width="4.854" height="4.854"/>
@@ -495,16 +500,16 @@
 			</g>
 		</g>
 	</g>
-	<g id="power" display="none">
+	<g id="power" opacity = "0">
 		<polyline display="inline" fill="#FFFFFF" points="184.8,636.792 180.049,646.557 187.44,646.557 183.217,656.588 		"/>
 		<polygon display="inline" fill="#898989" points="185.041,655.819 180.6,655.819 184.458,648.538 176.885,648.538 
 			183.021,637.659 187.372,637.659 183.213,644.578 190.422,644.578 		"/>
 	</g>
-	<polyline id="wire1" display="none" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" points="
-		217.936,421.19 293.102,421.19 293.102,458.358 	"/>
+	</g>
 
-	<polyline id="wire2" display="none" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" points="
-		293.102,572.458 293.102,671.444 527.074,671.444 527.074,642.3 	"/>
+	
+
+
 </g>
 
 
@@ -528,15 +533,15 @@
 			<circle fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" cx="1127.229" cy="253.193" r="3.613"/>
 		</g>
 	</g>
-	<g id="graph">
+	<g id="graph" stroke-width="7">
 		
-			<rect x="1096.264" y="374.318" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="31.078" height="111.197"/>
+			<rect x="1096.264" y="374.318" fill="none" stroke="#000000" stroke-miterlimit="10" width="31.078" height="111.197"/>
 		
-			<rect x="1127.342" y="423.964" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="31.078" height="61.551"/>
+			<rect x="1127.342" y="423.964" fill="none" stroke="#000000" stroke-miterlimit="10" width="31.078" height="61.551"/>
 		
-			<rect x="1158.905" y="328.011" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="31.078" height="157.504"/>
+			<rect x="1158.905" y="328.011" fill="none" stroke="#000000" stroke-miterlimit="10" width="31.078" height="157.504"/>
 		
-			<rect x="1189.983" y="400.656" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="31.077" height="84.859"/>
+			<rect x="1189.983" y="400.656" fill="none" stroke="#000000" stroke-miterlimit="10" width="31.077" height="84.859"/>
 	</g>
 	
 	
@@ -556,6 +561,10 @@
 
 <g id="social">
 	<g id="guy2">
+		<line id = "sightline" x1 = "1543" y1 = "378" x2 = "1543" y2 = "378" stroke = "#000" stroke-width = "10"
+			stroke-dasharray = "10" />
+		
+		
 		<path fill="#FFFFFF" stroke="#000000" stroke-width="7" stroke-miterlimit="10" d="M1522.852,444.974c0,4.392,0,189.45,0,189.45
 			c0,10.452-14.388,14.538-14.388,0c0,0-4.239-88.589-4.239-95.858c0-7.269-8.934-7.269-8.934,0l-7.876,95.858
 			c0,14.538-21.807,15.447-21.807,0c0,0-4.544-107.219-4.544-111.762"/>
@@ -564,10 +573,10 @@
 			c4.544-14.536,6.996-18.779,21.531-20.751c0-23.816-2.778-56.335,25.416-56.335c28.193,0,24.56,33.357,24.56,56.335
 			c0,0,15.22,6.618,18.752,17.722c4.239,13.326,5.451,99.344-2.728,102.675c-9.993,3.938-10.6-5.754-10.6-5.754l-0.606-73.297"/>
 	</g>
-	<g id="extraneous">
-		<rect x="1779.561" y="511.799" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="88" height="144"/>
-		<rect x="1787.561" y="370.799" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="32" height="141"/>
-		<rect x="1833.561" y="410.799" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="24" height="99"/>
+	<g id="extraneous" filter = "url(#blur)">
+		<rect x="1779.561" y="511.799" fill="#fff" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="88" height="144"/>
+		<rect x="1787.561" y="370.799" fill="#fff" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="32" height="141"/>
+		<rect x="1833.561" y="410.799" fill="#fff" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="24" height="99"/>
 		
 			<rect x="1829.561" y="453.799" fill="#FFFFFF" stroke="#000000" stroke-width="7" stroke-miterlimit="10" width="32" height="58"/>
 	</g>
@@ -608,7 +617,7 @@
 		</g>
 	</g>
 	
-		<circle id="sun" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" cx="-416.639" cy="403.163" r="89.712"/>
+		<circle id="sun" fill="none" stroke="#000000" stroke-width="7" stroke-miterlimit="10" cx="-416.639" cy="403.163" r="89.712" filter = "url(#blur2)"/>
 	<g id="buildings_1_">
 		<polygon fill="#FFFFFF" stroke="#000000" stroke-width="7" stroke-miterlimit="10" points="-566.394,670.803 -566.394,451.98 
 			-416.639,403.162 -416.639,670.803 		"/>
