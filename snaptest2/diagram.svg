@@ -990,26 +990,39 @@
 
 <g id = "text">
 	<text id = "title_1" transform="matrix(1 0 0 1 -567 740)" font-size="24pt">NETWORKED BUILDING DATA</text>
-
-	<text id = "head_1" transform="matrix(1 0 0 1 340 200)" font-size="36pt" opacity = "0"> NETWORKED BUILDING DATA </text>
-	<text id = "body_1" transform="matrix(1 0 0 1 420 265)" font-size="24pt" opacity = "0"> Internet-enabled metering devices allow a building's energy use it be itemized and broadcast over a wireless network.</text>
-
+<g transform = "translate(50 50)">
+	<text id = "head_1" transform="matrix(1 0 0 1 140 200)" font-size="36pt" opacity = "0"> NETWORKED BUILDING DATA </text>
+	<text id = "body_1" transform="matrix(1 0 0 1 320 265)" font-size="28pt" opacity = "0"> 
+		<tspan x = "-70" dy = "10">Internet-enabled metering devices allow a building's power consumption, solar gain,</tspan>
+		<tspan x = "-70" dy = "48">and various other energy metrics to be measured, then broadcast over wireless networks.</tspan>
+	</text>
+</g>
 	<text id = "title_2" transform="matrix(1 0 0 1 17 740)" font-size="24pt">COMPUTING &amp; ELECTRONICS</text>
-	<text id = "head_2" transform = "matrix(1 0 0 1 450 200)" font-size = "36pt" opacity = "0"> COMPUTING &amp; ELECTRONICS </text>
-	<text id = "body_2" transform = "matrix(1 0 0 1 530 265)" font-size = "24pt" opacity = "0"> A miniature computer with custom software allows building data to be translated into signals that engage electronic motors.</text>
+	<text id = "head_2" transform = "matrix(1 0 0 1 180 290)" font-size = "36pt" opacity = "0"> COMPUTING &amp; ELECTRONICS </text>
+	<text id = "body_2" transform = "matrix(1 0 0 1 430 265)" font-size = "28pt" opacity = "0"> 
+		<tspan x = "0" dy = "20">A miniature computer (beaglebone black) with input/output pins </tspan>
+		<tspan x = "0" dy = "48">and custom software acts as server and controller, interpreting </tspan>
+		<tspan x = "0" dy = "48">building data into signals that engage electronic motors.</tspan></text>
+	<text id = "body_2a" transform = "matrix(1 0 0 1 560 365)" font-size = "28pt" opacity = "0">
+		<tspan x = "-10">> Visit our Github Repo</tspan>
+		<tspan x = "-10" dy = "55">> Full Electronic Schematic</tspan> 
+	</text>
+
+		
+
 
 <text id = "title_3" transform="matrix(1 0 0 1 612 740)" font-size="24pt" >TANGIBLE DESIGN</text>
-<g id = "tangible" transform="translate(0 50)">
+<g transform="translate(0 50)">
 	
-	<text id = "head_3" opacity = "1" transform = "matrix(1 0 0 1 90 200)" font-size = "40pt">TANGIBLE DESIGN </text>
-	<text id = "body_3" opacity = "1" transform = "matrix(1 0 0 1 40 265)" font-size = "28pt" text-anchor = "end"> 
-		<tspan x = "520" dy = "10">The physical design of the object and its mechanical engineering</tspan>
+	<text id = "head_3" opacity = "0" transform = "matrix(1 0 0 1 300 200)" font-size = "40pt">TANGIBLE DESIGN </text>
+	<text id = "body_3" opacity = "0" transform = "matrix(1 0 0 1 130 265)" font-size = "28pt" text-anchor = "end"> 
+		<tspan x = "520" dy = "5">The physical design of the object and its mechanical engineering</tspan>
 		<tspan x = "520" dy = "48">obscure its working parts while maximizing its ability to express</tspan> 
 		<tspan x = "520" dy = "48">quantity and quality through scale and light.</tspan></text>	
-		<text id = "body_3a" opacity = "1" transform = "matrix(1 0 0 1 930 265)" font-size = "28pt">
-			<tspan x = "5">Aesthetic simplicity is intended to evoke curiosity and </tspan>
-			<tspan x = "5" dy = "48">allow for a harmonious visual relationship with the public </tspan>
-				<tspan x = "5" dy = "48">context. </tspan>
+	<text id = "body_3a" opacity = "0" transform = "matrix(1 0 0 1 830 265)" font-size = "28pt">
+			<tspan x = "5" dy = "5">Geometric simplicity and uniform exterior finish reduce</tspan>
+			<tspan x = "5" dy = "48">fidelity, but avoid the impression of noisy novelty and</tspan>
+				<tspan x = "5" dy = "48">allow the object to surprise and attract curiosity.</tspan>
 		</text>
 </g>
 

@@ -116,7 +116,19 @@ $(document).ready(function(){
 					title_2 = g.select("#title_2"),
 					title_3= g.select("#title_3"),
 					title_4 = g.select("#title_4"),
-					title_5 = g.select("#title_5");
+					title_5 = g.select("#title_5"),
+					head_1 = g.select("#head_1"),
+					head_2 = g.select("#head_2"),
+					head_3 = g.select("#head_3"),
+					head_4 = g.select("#head_4"),
+					head_5 = g.select("#head_5"),
+					body_1 = g.select("#body_1"),
+					body_2 = g.select("#body_2"),
+					body_2a = g.select("#body_2a"),
+					body_3 = g.select("#body_3"),
+					body_3a = g.select("#body_3a"),
+					body_4 = g.select("#body_4"),
+					body_5 = g.select("#body_5");
 
 		//ANIMATION
 
@@ -146,25 +158,7 @@ $(document).ready(function(){
 			seseme.mouseover(function(){
 				if(!buildingClick && !brainsClick && !sesemeClick && !phoneClick && !socialClick){
 				console.log('seseme');
-				var min = -50,
-					max = 60,
-					h1 = Math.floor(Math.random()*(max - min + 15)) + min, 
-					h2 = Math.floor(Math.random()*(max - min + 15)) + min, 
-					h3 = Math.floor(Math.random()*(max - min + 15)) + min, 
-					h4 = Math.floor(Math.random()*(max - min + 15)) + min;
-
-					sesemePillar1.animate({
-						transform: "t 0 " +h1 
-					}, 500)
-					sesemePillar2.animate({
-						transform: "t 0 " + h2
-					}, 500)
-					sesemePillar3.animate({
-						transform: "t 0 " + h3
-					}, 500)
-					sesemePillar4.animate({
-						transform: "t 0 " +h4
-					}, 500)
+				randomizeSeseme();
 				}
 			})
 			phone.mouseover(function(){
@@ -256,7 +250,7 @@ $(document).ready(function(){
 				})
 
 				building.animate({
-					transform: "t 230 -150 s 1.25"
+					transform: "t 230 -110 s 1.25"
 				},300)
 
 				buildingExtra.animate({
@@ -309,11 +303,22 @@ $(document).ready(function(){
 				},900);
 				e.stopPropagation();
 				
+				title_1.animate({
+					opacity: 0
+				},300)
+				head_1.animate({
+					opacity: 1,
+					transform: "matrix(1 0 0 1 340 200)"
+				},300)
+				body_1.animate({
+					opacity: 1,
+					transform: "matrix(1 0 0 1 420 265)"
+				},300)
 			})
 			brains.click(function(e){
 				brainsClick = true;
 				brains.animate({
-					transform: "t -120 -45 s 1.35"
+					transform: "t -120 -35 s 1.35"
 				},300);
  				minimize(2, true, false, true,true,true);
  				brainsExtra.forEach(function(ele){
@@ -343,7 +348,26 @@ $(document).ready(function(){
 					strokeDashoffset: 0
 				}, 800)
 				e.stopPropagation();
-				
+
+				title_2.animate({
+					opacity: 0
+				},300)
+				head_2.animate({
+					transform: "matrix(1 0 0 1 280 190)",
+					opacity: 1
+				},300)
+				body_2.animate({
+					transform: "matrix(1 0 0 1 530 265)",
+					opacity: 1
+				},300)
+
+				timeoutA = window.setTimeout(function(){
+					body_2a.animate({
+						transform: "matrix(1 0 0 1 560 495)",
+						opacity: 1
+					},400)
+				},400)
+
 			})
 			seseme.click(function(e){
 				sesemeClick = true;
@@ -358,27 +382,24 @@ $(document).ready(function(){
 						opacity:1
 					},300)
 				})
-				//replicate mouseover
-					var min = -50,
-					max = 60,
-					h1 = Math.floor(Math.random()*(max - min + 15)) + min, 
-					h2 = Math.floor(Math.random()*(max - min + 15)) + min, 
-					h3 = Math.floor(Math.random()*(max - min + 15)) + min, 
-					h4 = Math.floor(Math.random()*(max - min + 15)) + min;
-
-					sesemePillar1.animate({
-						transform: "t 0 " +h1 
-					}, 500)
-					sesemePillar2.animate({
-						transform: "t 0 " + h2
-					}, 500)
-					sesemePillar3.animate({
-						transform: "t 0 " + h3
-					}, 500)
-					sesemePillar4.animate({
-						transform: "t 0 " +h4
-					}, 500)
+					randomizeSeseme();
 					e.stopPropagation();
+
+				title_3.animate({
+					opacity: 0
+				},300)
+				body_3.animate({
+					opacity: 1,
+					transform: "matrix(1 0 0 1 40 265)"
+				},300)
+				body_3a.animate({
+					opacity: 1,
+					transform: "matrix(1 0 0 1 930 265)"
+				},300)
+				head_3.animate({
+					opacity: 1,
+					transform: "matrix(1 0 0 1 90 200)"
+				},300)
 			})
 			phone.click(function(e){
 				phoneClick = true;
@@ -477,7 +498,29 @@ $(document).ready(function(){
 
 					restoreText();					
 			})
-	function revertBuilding(){ //gridlines retract, windows fade, sun moves/scales, dotted lines retract, wifi fades....extras either reappear or disappear
+
+	function randomizeSeseme(){
+		var min = -50,
+			max = 60,
+			h1 = Math.floor(Math.random()*(max - min + 15)) + min, 
+			h2 = Math.floor(Math.random()*(max - min + 15)) + min, 
+			h3 = Math.floor(Math.random()*(max - min + 15)) + min, 
+			h4 = Math.floor(Math.random()*(max - min + 15)) + min;
+
+			sesemePillar1.animate({
+				transform: "t 0 " +h1 
+			}, 500)
+			sesemePillar2.animate({
+				transform: "t 0 " + h2
+			}, 500)
+			sesemePillar3.animate({
+				transform: "t 0 " + h3
+			}, 500)
+			sesemePillar4.animate({
+				transform: "t 0 " +h4
+				}, 500)
+	}
+	function revertBuilding(){ 
 		clearTimeout(timeoutA);
 		clearTimeout(timeoutB);
 		clearTimeout(timeoutC);
@@ -600,15 +643,51 @@ $(document).ready(function(){
 
 	function restoreText(){
 		title_1.animate({
-			transform: "matrix(1 0 0 1 -567 740)"
+			transform: "matrix(1 0 0 1 -567 740)",
+			opacity: 1
+		}, 300)
+		head_1.animate({
+			transform: "matrix(1 0 0 1 140 200)",
+			opacity: 0
+		}, 300)
+		body_1.animate({
+			opacity: 0,
+			transform: "matrix(1 0 0 1 320 265)"
 		}, 300)
 		title_2.animate({
-			transform: "matrix(1 0 0 1 17 740)"
+			transform: "matrix(1 0 0 1 17 740)",
+			opacity: 1
 		}, 300)
+		head_2.animate({
+			transform: "matrix(1 0 0 1 180 290)",
+			opacity: 0
+		},300)
+		body_2.animate({
+			transform: "matrix(1 0 0 1 430 265)",
+			opacity: 0
+		},300)
+		body_2a.animate({
+			transform: "matrix(1 0 0 1 560 365)",
+			opacity: 0
+		},300)
 		title_3.animate({
-			transform: "matrix(1 0 0 1 612 740)"
+			transform: "matrix(1 0 0 1 612 740)",
+			opacity: 1
 		}, 300)
-			title_4.animate({
+		body_3.animate({
+			opacity: 0,
+			transform: "matrix(1 0 0 1 130 265)"
+		}, 300)
+		body_3a.animate({
+			opacity: 0,
+			transform: "matrix(1 0 0 1 830 265)"			
+		}, 300)
+		head_3.animate({
+			opacity: 0,
+			transform: "matrix(1 0 0 1 300 200)"
+		}, 300)
+
+		title_4.animate({
 			transform: "matrix(1 0 0 1 998 740)"
 		}, 300)
 		title_5.animate({
