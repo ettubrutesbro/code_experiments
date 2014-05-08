@@ -999,7 +999,7 @@
 	<text id = "body_2" transform = "matrix(1 0 0 1 530 265)" font-size = "24pt" opacity = "0"> A miniature computer with custom software allows building data to be translated into signals that engage electronic motors.</text>
 
 <text id = "title_3" transform="matrix(1 0 0 1 612 740)" font-size="24pt" >TANGIBLE DESIGN</text>
-<g id = "tangible" transform="translate(0 60)">
+<g id = "tangible" transform="translate(0 50)">
 	
 	<text id = "head_3" opacity = "1" transform = "matrix(1 0 0 1 90 200)" font-size = "40pt">TANGIBLE DESIGN </text>
 	<text id = "body_3" opacity = "1" transform = "matrix(1 0 0 1 40 265)" font-size = "28pt" text-anchor = "end"> 
