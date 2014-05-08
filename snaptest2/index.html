@@ -11,6 +11,7 @@
 		height: 500px;
 		border: 1px black solid;
 	}
+
 </style>
 </head>
 
@@ -22,8 +23,6 @@
 
 <script>
 $(document).ready(function(){
-
-
 
 	var s = Snap("#diagram_big");
 		Snap.load("diagram.svg", function(f){
@@ -60,7 +59,6 @@ $(document).ready(function(){
 				
 				//group components
 					// individual paths etc. for drawing
-
 				//building
 				sol = building.select('#sun'),
 				pointer1 = building.select('#pointer1'),
@@ -96,7 +94,6 @@ $(document).ready(function(){
 				phoneline = phone.path("M 1106,495 L 1131,531 L 1155,531").attr({stroke: "#000", strokeWidth: 5, fill: "none"}), 
 				graph = phone.select('#graph'),
 
-
 				//social
 				phoneGuy = social.select("#guy1"),
 				otherGuy = social.select("#guy2"),
@@ -108,7 +105,6 @@ $(document).ready(function(){
 					ele.attr({ 
 						stroke: "#898989",
 						strokeWidth: 5,
-						
 					})
 				})
 
@@ -121,13 +117,9 @@ $(document).ready(function(){
 					title_3= g.select("#title_3"),
 					title_4 = g.select("#title_4"),
 					title_5 = g.select("#title_5");
-			
-				
-		//ANIMATION
-			//mouseover: some animations play
-			//click: mouseover anims + extra anims + other items move and get smaller
 
-			// MOUSEOVERS - SMALL SCALE TRANSFORMS AND OTHER SHIT THAT REACTS A LITTLE
+		//ANIMATION
+
 			building.mouseover(function(){
 				if(!buildingClick && !brainsClick && !sesemeClick && !phoneClick && !socialClick){
 				console.log('building');
@@ -139,9 +131,6 @@ $(document).ready(function(){
 					opacity: 1
 				}, 300)
 				}
-
-			
-
 			})
 			brains.mouseover(function(){
 				if(!buildingClick && !brainsClick && !sesemeClick && !phoneClick && !socialClick){
@@ -187,7 +176,6 @@ $(document).ready(function(){
 					ele.animate({
 						opacity: 1
 					}, 300);
-
 				})
 
 				phoneline.animate({
@@ -210,9 +198,7 @@ $(document).ready(function(){
 					transform: "matrix(1 0 0 1 1095 590)"
 				}, 300) 
 			}
-		})
-
-			
+		})			
 			social.mouseover(function(){
 				if(!buildingClick && !brainsClick && !sesemeClick && !phoneClick && !socialClick){
 				sightline.animate({
@@ -220,9 +206,7 @@ $(document).ready(function(){
 				}, 300)
 				}
 			})
-
 			// MOUSE OUT EVENTS - SHOULD PROBABLY ONLY FIRE IF NOT ALREADY EXPANDED...
-			
 			building.mouseout(function(){
 				if(!buildingClick){
 				sol.animate({
@@ -234,7 +218,6 @@ $(document).ready(function(){
 			}
 			})
 		
-			
 			brains.mouseout(function(){
 				if(!brainsClick){
 				beaglebone.animate({
@@ -247,62 +230,22 @@ $(document).ready(function(){
 			})
 			seseme.mouseout(function(){
 				if(!sesemeClick){
-				console.log('seseme out');
-				sesemePillar1.animate({
-					transform: "t 0 0"
-				}, 500)
-				sesemePillar2.animate({
-					transform: "t 0 0"
-				}, 500)
-				sesemePillar3.animate({
-					transform: "t 0 0"
-				}, 500)
-				sesemePillar4.animate({
-					transform: "t 0 0"
-				}, 500)
-			}
+					revertSeseme();
+				}
 			})
 			phone.mouseout(function(){
 				if(!phoneClick){
-				console.log('phone out');
-				var numberArr = [text2, text3, text4, text5, text6, text7, text8];
-				numberArr.forEach(function(ele, i){
-					ele.animate({
-						opacity: 0
-					}, 300);
-				})
-
-				phoneline.animate({
-					path: "M 1106,485 L 1131,521 L 1149,521",
-					opacity: 1
-				}, 300)
-				text1.animate({
-					transform: "matrix(1 0 0 1 1170 545)",
-				}, 300);
-				text5.animate({
-					transform: "matrix(1 0 0 1 1075 515)"
-				}, 300)
-				text6.animate({
-					transform: "matrix(1 0 0 1 1075 540)"
-				}, 300)
-				text7.animate({
-					transform: "matrix(1 0 0 1 1075 565)"
-				}, 300)
-				text8.animate({
-					transform: "matrix(1 0 0 1 1075 590)"
-				}, 300)
-
-			}})
-
+					revertPhone();
+				}
+			})
 			social.mouseout(function(){
-				sightline.animate({
-					x2: 1543
-				}, 300)
+				if(!socialClick){
+					revertSocial();
+				}
 			})
 		
-
 			// CLICK EVENTS - RESULT IN EXPANSION AND REVEAL
-			building.click(function(){
+			building.click(function(e){
 				buildingClick = true;
 					var pathArr = ["M -785 746 L-566 595", "M -621 746 L-530 641", "M -469 746 L-437 641", "M -341 746 L-341 641", "M -214 746 L-247 641", "M -62 746 L-153 641", "M 101 746 L-117 590", "M -595 602 L -87 602", "M -630 619 L -46 619", "M -675 641 L -117 641", "M -733 672 L 46 672", "M -811 708 L 133 708"]
 
@@ -327,7 +270,6 @@ $(document).ready(function(){
 				weirdline.animate({
 					path: "M -113 641 L -27 641"
 				},300)
-
 
 				minimize(1,false,true,true,true,true);
 				//replicate mouseover
@@ -365,12 +307,13 @@ $(document).ready(function(){
 						opacity: 1
 					},150)
 				},900);
+				e.stopPropagation();
 				
 			})
-			brains.click(function(){
+			brains.click(function(e){
 				brainsClick = true;
 				brains.animate({
-					transform: "t -200 -110 s 1.35"
+					transform: "t -120 -45 s 1.35"
 				},300);
  				minimize(2, true, false, true,true,true);
  				brainsExtra.forEach(function(ele){
@@ -399,9 +342,10 @@ $(document).ready(function(){
 				wire.animate({
 					strokeDashoffset: 0
 				}, 800)
+				e.stopPropagation();
 				
 			})
-			seseme.click(function(){
+			seseme.click(function(e){
 				sesemeClick = true;
 				
 				seseme.animate({
@@ -434,8 +378,9 @@ $(document).ready(function(){
 					sesemePillar4.animate({
 						transform: "t 0 " +h4
 					}, 500)
+					e.stopPropagation();
 			})
-			phone.click(function(){
+			phone.click(function(e){
 				phoneClick = true;
 				phone.animate({
 					transform: "t 155 -80 s 1.3"
@@ -471,9 +416,10 @@ $(document).ready(function(){
 				text8.animate({
 					transform: "matrix(1 0 0 1 1095 590)"
 				}, 300) 
+				e.stopPropagation();
 
 			})
-			social.click(function(){
+			social.click(function(e){
 				socialClick = true;
 				social.animate({
 					transform: "t -200 -60 s 1.35"
@@ -489,17 +435,191 @@ $(document).ready(function(){
 				socialFilter.animate({
 					stdDeviation: "4"
 				}, 300);
-
+				sightline.animate({
+					x2: 1543
+				}, 300)
 				minimize(5, true, true, true, true, false);
+				e.stopPropagation();
 			})
 		
-	
+			$('svg').click(function(){ //when clicking outside targets
+
+					console.log('clicked shit');
+					var theBigFive = [building, brains, seseme, phone, social],
+					simpleExtras = [buildingExtra, phoneExtra, socialExtra],
+					arrayedExtras = [brainsExtra, sesemeExtra];
+
+					theBigFive.forEach(function(ele){ //everything to default coords and scale
+						ele.animate({
+							transform: "t 0 0 s 1"
+						},300)
+					})
+
+					simpleExtras.forEach(function(ele){ //non array extras fade in
+						ele.animate({
+							opacity: 1
+						},300)
+					})
+
+					arrayedExtras.forEach(function(ele){
+						ele.forEach(function(e){
+							e.animate({
+								opacity:1
+							},300)
+						})
+					})
+
+					revertBuilding();
+					revertBrains();
+					revertSeseme();
+					revertPhone();
+					revertSocial();
+
+					restoreText();					
+			})
+	function revertBuilding(){ //gridlines retract, windows fade, sun moves/scales, dotted lines retract, wifi fades....extras either reappear or disappear
+		clearTimeout(timeoutA);
+		clearTimeout(timeoutB);
+		clearTimeout(timeoutC);
+		clearTimeout(timeoutD);
+
+		buildingClick = false;
+
+		var pathArr = ["M -785 746", "M -621 746", "M -469 746", "M -341 746", "M -214 746", "M -62 746", "M 101 746", "M -595 602", "M -630 619", "M -675 641", "M -733 672", "M -811 708"]
+		gridlines.forEach(function(ele, i){
+			ele.animate({
+				path: pathArr[i]
+			}, 300)
+		})
+		sol.animate({
+			transform: "t 0 0 s 1",
+			opacity: 1
+		}, 300)
+		windows.animate({
+			opacity: 0
+		}, 300)
+		weirdline.animate({
+			path: "M -113 641"
+		},300)
+		pointer1.animate({
+			path: "M-27 641"
+		},300)
+		pointer2.animate({
+			path: "M -267 388"
+		},300)
+		wifi1.animate({
+			opacity: 0
+		},300)
+		wifi2.animate({
+			opacity: 0
+		},300)
+		wifi3.animate({
+			opacity: 0
+		},300)
+		buildingFilter.animate({
+			stdDeviation: "0"
+		},300)
+	}
+
+	function revertBrains(){
+		brainsClick = false;
+
+		beaglebone.animate({
+			transform: "t 0 0"
+		}, 300)
+		stepper.animate({
+			transform: "t 0 0"
+		}, 300)
+
+		brainsExtra2.forEach(function(ele){
+			ele.animate({
+				opacity: 0
+			}, 800)
+		})
+
+		nanowifi.animate({
+			transform: "t 0 0"
+		}, 300)
+		wire.animate({
+			strokeDashoffset: 400
+		}, 300)
+	}
+
+	function revertPhone(){
+		phoneClick = false;
+		var numberArr = [text2, text3, text4, text5, text6, text7, text8];
+			numberArr.forEach(function(ele, i){
+				ele.animate({
+					opacity: 0
+				}, 300);
+			})
+		phoneline.animate({
+			path: "M 1106,485 L 1131,521 L 1149,521",
+			opacity: 1
+		}, 300)
+		text1.animate({
+			transform: "matrix(1 0 0 1 1170 545)",
+		}, 300);
+		text5.animate({
+			transform: "matrix(1 0 0 1 1075 515)"
+		}, 300)
+		text6.animate({
+			transform: "matrix(1 0 0 1 1075 540)"
+		}, 300)
+		text7.animate({
+			transform: "matrix(1 0 0 1 1075 565)"
+		}, 300)
+		text8.animate({
+			transform: "matrix(1 0 0 1 1075 590)"
+		}, 300)
+	}
+
+	function revertSeseme(){
+		sesemeClick = false;
+			var pillars = [sesemePillar1, sesemePillar2, sesemePillar3, sesemePillar4];
+
+			pillars.forEach(function(ele){
+				ele.animate({
+					transform: "t 0 0"
+				}, 500)
+			})
+	}
+
+	function revertSocial(){
+		socialClick = false;
+		otherGuy.animate({
+			transform: "t 0 0"
+		},300);
+		socialFilter.animate({
+			stdDeviation: "0"
+		}, 300);
+		sightline.animate({
+			x2: 1543
+		}, 300)
+	}
+
+	function restoreText(){
+		title_1.animate({
+			transform: "matrix(1 0 0 1 -567 740)"
+		}, 300)
+		title_2.animate({
+			transform: "matrix(1 0 0 1 17 740)"
+		}, 300)
+		title_3.animate({
+			transform: "matrix(1 0 0 1 612 740)"
+		}, 300)
+			title_4.animate({
+			transform: "matrix(1 0 0 1 998 740)"
+		}, 300)
+		title_5.animate({
+			transform: "matrix(1 0 0 1 1443 740)"
+		}, 300)
+	}
+
 		function minimize(whichOne, build, brain, sesem, phon, socia){ //opacity of extraneous elements + scale of overall item
 
 				//push whichOne into beginning of array, remove [2]....check for [0] == [1] etc.  
-				if(build){
-					buildingClick = false;
-
+				if(build){	
 					title_1.animate({
 						transform: "matrix(0.7 0 0 0.7 -600 740)"
 					},300)
@@ -507,58 +627,14 @@ $(document).ready(function(){
 					buildingExtra.animate({
 						opacity: 0
 					},300);
+
 					building.animate({
-						transform: "matrix(0.4,0,0,0.4,-299.5855,376.2414)"
-					},300)
-
-					//array-loop based grid reversion
-					var pathArr = ["M -785 746", "M -621 746", "M -469 746", "M -341 746", "M -214 746", "M -62 746", "M 101 746", "M -595 602", "M -630 619", "M -675 641", "M -733 672", "M -811 708"]
-					gridlines.forEach(function(ele, i){
-						ele.animate({
-							path: pathArr[i]
-						}, 300)
-					//replicate mouseout event
-					sol.animate({
-						transform: "t 0 0 s 1",
-						opacity: 1
-					}, 300)
-					windows.animate({
-						opacity: 0
-					}, 300)
-					buildingFilter.animate({
-						stdDeviation: "0"
-					},300)
-
-					weirdline.animate({
-						path: "M -113 641"
-					},300)
-
-					clearTimeout(timeoutA);
-					clearTimeout(timeoutB);
-					clearTimeout(timeoutC);
-					clearTimeout(timeoutD);
-
-					pointer1.animate({
-						path: "M-27 641"
-					},300)
-					pointer2.animate({
-						path: "M -267 388"
-					},300)
-					wifi1.animate({
-						opacity: 0
-					},300)
-					wifi2.animate({
-						opacity: 0
-					},300)
-					wifi3.animate({
-						opacity: 0
-					},300)
-
-				})
+						transform: "matrix(0.6,0,0,0.6,-230,290)"
+					},300)	
+					revertBuilding();
 				}
-
-				if(brain){
-					brainsClick = false;
+				
+				if(brain){	
 					brainsExtra.forEach(function(ele){
 						ele.animate({
 							opacity:0
@@ -566,45 +642,23 @@ $(document).ready(function(){
 					})
 					if(whichOne < 2){ //go right
 						brains.animate({
-							transform: "t 940 120 s 0.45"
+							transform: "t 565 110 s 0.6"
 						},300)
 						title_2.animate({
 							transform: "matrix(0.7 0 0 0.7 650 740)"
 						},300)
 					}else{ //go left
 						brains.animate({
-							transform: "t -435 100 s 0.45"
+							transform: "t -315 105 s 0.6"
 						},300)
 						title_2.animate({
 							transform: "matrix(0.7 0 0 0.7 -217 740)"
 						},300)
 					}
-
-					//replicate mouseout anim
-					beaglebone.animate({
-						transform: "t 0 0"
-					}, 300)
-					stepper.animate({
-						transform: "t 0 0"
-					}, 300)
-
-					brainsExtra2.forEach(function(ele){
-						ele.animate({
-							opacity: 0
-						}, 800)
-					})
-
-					nanowifi.animate({
-						transform: "t 0 0"
-					}, 300)
-
-					wire.animate({
-						strokeDashoffset: 400
-					}, 300)
+					revertBrains();
 				}
 
 				if(sesem){
-					sesemeClick = false;
 					sesemeExtra.forEach(function(ele){
 						ele.animate({
 							opacity:0
@@ -615,32 +669,18 @@ $(document).ready(function(){
 							transform: "matrix(0.7 0 0 0.7 1000 740)"
 						},300)
 						seseme.animate({
-							transform: "t 800 250 s 0.45"
+							transform: "t 475 240 s 0.6"
 						},300)
 					} else { //go left
 						title_3.animate({
 							transform: "matrix(0.7 0 0 0.7 170 740)"
 						},300)
 						seseme.animate({
-							transform: "t -570 240 s 0.45"
+							transform: "t -570 240 s 0.6"
 						},300)
 					}
-					//replicate mouseout anim
-					sesemePillar1.animate({
-						transform: "t 0 0"
-					}, 500)
-					sesemePillar2.animate({
-						transform: "t 0 0"
-					}, 500)
-					sesemePillar3.animate({
-						transform: "t 0 0"
-					}, 500)
-					sesemePillar4.animate({
-						transform: "t 0 0"
-					}, 500)
-
+					revertSeseme();
 				}
-
 				if(phon){
 					phoneClick = false;
 					phoneExtra.animate({
@@ -655,48 +695,20 @@ $(document).ready(function(){
 							transform: "matrix(.7 0 0 .7 1240 740)"
 						},300)
 						phone.animate({
-							transform: "t 350 160 s 0.65"
+							transform: "t 190 155"
 						},300)
 					} else { //go left
 						title_4.animate({
 							transform: "matrix(.7 0 0 .7 430 740)"
 						},300)
 						phone.animate({
-							transform: "t -1010 160 s 0.65"
+							transform: "t -1010 155"
 						},300)
 					}
+					revertPhone();
+				}
 
-					//replicate mouseout anim
-					var numberArr = [text2, text3, text4, text5, text6, text7, text8];
-					numberArr.forEach(function(ele, i){
-						ele.animate({
-							opacity: 0
-						}, 300);
-					})
-
-					phoneline.animate({
-						path: "M 1106,485 L 1131,521 L 1149,521",
-						opacity: 1
-					}, 300)
-					text1.animate({
-						transform: "matrix(1 0 0 1 1170 545)",
-					}, 300);
-					text5.animate({
-						transform: "matrix(1 0 0 1 1075 515)"
-					}, 300)
-					text6.animate({
-						transform: "matrix(1 0 0 1 1075 540)"
-					}, 300)
-					text7.animate({
-						transform: "matrix(1 0 0 1 1075 565)"
-					}, 300)
-					text8.animate({
-						transform: "matrix(1 0 0 1 1075 590)"
-					}, 300)
-					}
-
-				if(socia){
-					socialClick = false;
+				if(socia){	
 					title_5.animate({
 						transform: "matrix(.7 0 0 .7 1520 740)"
 					},300)
@@ -704,26 +716,13 @@ $(document).ready(function(){
 						opacity:0
 					},300)
 					social.animate({
-						transform: "t 30 90 s 0.4"
+						transform: "t 30 80 s 0.6"
 					}, 300)
-
-				otherGuy.animate({
-					transform: "t 0 0"
-				},300);
-
-				socialFilter.animate({
-					stdDeviation: "0"
-				}, 300);
-
-
+					revertSocial();
 				}
 			}
-
-
-
 	})
 })
-
 </script>
 
 </body>
